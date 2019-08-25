@@ -15,6 +15,10 @@ hour:{
 minute:{
     type:Number,
     required:true
+},
+message:{
+    type:String,
+    default:""
 }
 });
 module.exports=mongoose.model('reminder',ReminderSchema);

@@ -40,13 +40,14 @@ router.post('/',[auth,[
 	if(!errors.isEmpty()){
 		return res.status(400).json({errors:errors.array() });
     }
-    const {medname,hour,minute}=req.body;
+    const {medname,hour,minute,message}=req.body;
 	try{
 		const newReminder=new Reminder({
             user:req.user.id,
             medname,
             hour,
-            minute
+			minute,
+			message
 		});
 		const reminder=await newReminder.save();
 		res.json(reminder);

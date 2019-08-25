@@ -1,12 +1,15 @@
 const express=require('express');
 const connectDB=require('./config/db');
 const path=require('path');
-
+const runReminder=require('./config/reminder');
 const cors=require('cors');
 const app=express();
 //connect database
 connectDB();
 
+//run reminder
+runReminder();
+const Reminder=require('./models/Reminder');
 //Init middleware
 app.use(express.json({extended:false}));
 app.use(cors());
@@ -16,6 +19,12 @@ app.use('/api/auth',require('./routes/auth'));
 app.use('/api/profile',require('./routes/profile'));
 app.use('/api/records',require('./routes/records'));
 app.use('/api/users',require('./routes/users'));
+app.use('/api/reminder',require('./routes/reminder'));
+
+
+
+//interval
+
 
 // serve static routes in production
 if(process.env.NODE_ENV==='production'){
