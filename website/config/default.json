@@ -1,4 +1,7 @@
 {
 	"mongoURI":"mongodb+srv://kanishk123:LYYJaVGYUxww5RqE@cluster0-a31xe.mongodb.net/test?retryWrites=true&w=majority",
-	"jwtSecret":"secret"
+	"jwtSecret":"secret",
+	"twilioAccountSid":"AC0d4961dac63293dbe8ebd199ed1a30cd",
+"twilioAuthToken":"96ef8666b0aff8a77aa9643985a93d8c",
+"twilioPhoneNumber":"+13345185869"
 }

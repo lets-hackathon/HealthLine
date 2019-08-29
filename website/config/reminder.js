@@ -13,9 +13,9 @@ const {medname,hour,minute,message,user}=reminder;
 //still not sure
 const profile=await Profile.findOne({user});
 const {phone}=profile;
-            var client = new twilio('AC0d4961dac63293dbe8ebd199ed1a30cd', '96ef8666b0aff8a77aa9643985a93d8c'),
+            var client = new twilio('TWILIO_ACCOUNT_SID', 'TWILIO_AUTH_TOKEN'),
 var textJob = new cronJob( `${minute} ${hour} * * *`, function(){
-    client.messages.create( { to:`${phone}`, from:'+13345185869', body:`Hey there from HealthLine!,time to take your dose of ${medname}` }, function( err, data ) {});
+    client.messages.create( { to:`${phone}`, from:'TWILIO_PHONE_NUMBER', body:`Hey there from HealthLine!,time to take your dose of ${medname}` }, function( err, data ) {});
   },  null, true);
         })
     }
