@@ -1,4 +1,4 @@
-.App {
+/* .App {
     text-align: center;
   }
   
@@ -30,7 +30,7 @@
     to {
       transform: rotate(360deg);
     }
-  }
+  } */
   /* for sidebar */
   html,
   body {
@@ -39,7 +39,7 @@
   
   #App {
     font-family: sans-serif;
-    height: 100vh;
+    height: 100%;
   }
   
   #page-wrap {
@@ -100,7 +100,7 @@
 
 
   /* profile setup */
-
+/* 
   body{
     background: -webkit-linear-gradient(left, #50deff, #4279ff);
 }
@@ -195,4 +195,4 @@
 .profile-tab p{
     font-weight: 600;
     color: #0062cc;
-}
+} */

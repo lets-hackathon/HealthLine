@@ -3,9 +3,13 @@ import {BrowserRouter as Router,Route,Switch} from 'react-router-dom';
 
 import  SideBar from './components/layout/SideBar';
 import Footer from './components/layout/Footer';
+import Header from './components/layout/Header';
+
 
 import Login from './components/auth/Login';
 import Register from './components/auth/Register';
+
+import Home from './components/patient/Home';
 
 import Blog from './components/patient/Blog';
 import Misc from './components/patient/Misc';
@@ -22,13 +26,15 @@ import './App.css';
 export default function App() {
   return (
     <AuthState>
+<Header/>
+    {/* <div id="App"> */}
 
-    <div id="App">
-      <SideBar />
-      <div id="page-wrap">
+      {/* <div id="page-wrap"> */}
       <Router>
- <div className="container">
+ {/* <div className="container"> */}
  	<Switch> 	
+   <Route exact path='/home' component={Home}/>
+
    <Route exact path='/register' component={Register}/>
   <Route exact path='/login' component={Login}/>
  	<Route exact path='/' component={Profile}/>
@@ -39,11 +45,12 @@ export default function App() {
  <Route exact path='/socialpresence' component={SocialPresence}/>
 <Route exact path='/symptomtracker' component={SymptomTracker}/>
  	</Switch>
- 	</div>
+ 	{/* </div> */}
  </Router>
-        
-      </div>
-    </div>
+    {/* </div> */}
+    {/* </div> */}
+    <Footer/>
+
     </AuthState>
 
   );
