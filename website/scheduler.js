@@ -3,7 +3,7 @@
 const CronJob = require('cron').CronJob;
 const notificationsWorker = require('./workers/notificationsWorker');
 const moment = require('moment');
-
+console.log("chai peelo");
 const schedulerFactory = function() {
   return {
     start: function() {

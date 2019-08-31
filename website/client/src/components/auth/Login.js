@@ -1,19 +1,19 @@
-import React,{useState,useContext,useEffect} from 'react';
+import React,{useState,useContext,useEffect,Fragment} from 'react';
 import AuthContext from '../../context/auth/authContext';
-import AlertContext from '../../context/alert/alertContext';
+// import AlertContext from '../../context/alert/alertContext';
 
 const Login=(props)=>{
-	const alertContext=useContext(AlertContext);
+	// const alertContext=useContext(AlertContext);
 		const authContext = useContext(AuthContext);
 	
-		const{setAlert}=alertContext;
+		// const{setAlert}=alertContext;
 		const { login,error,clearErrors,isAuthenticated} = authContext;
 		useEffect(() => {
 			if(isAuthenticated){
 				props.history.push('/');
 			}
 			 if (error === 'Invalid Credentials') {
-			   setAlert(error, 'danger');
+			//    setAlert(error, 'danger');
 			   clearErrors();
 			 }
 			 // eslint-disable-next-line
@@ -30,7 +30,7 @@ const Login=(props)=>{
 	const onSubmit=e=>{
 	e.preventDefault();
 	if(email===''||password===''){
-		setAlert('Please fill in all fields','danger');
+		// setAlert('Please fill in all fields','danger');
 	}
 	else{
 		login({
@@ -41,6 +41,7 @@ const Login=(props)=>{
 
 	}
 	return (
+		<Fragment>
 	<div className="form-container">
 		<h1>
 		Account <span className="text-primary">Login</span>	
@@ -66,6 +67,7 @@ const Login=(props)=>{
 					className="btn btn-primary btn-block"/>
 			</form>
 		</div>
+		</Fragment>
 	);
 }
 

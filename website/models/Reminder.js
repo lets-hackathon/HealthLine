@@ -1,10 +1,15 @@
 const mongoose=require('mongoose');
-const cfg = require('../config');
+const config=require('config');
+const twilioAccountSid=config.get('twilioAccountSid');
+const twilioAuthToken=config.get('twilioAuthToken');
+const twilioPhoneNumber=config.get('twilioPhoneNumber');
 
+
+const User=require('./User.js');
 const ReminderSchema=mongoose.Schema({
 user:{
     type:mongoose.Schema.Types.ObjectId,
-    ref="users"
+    // ref="users"
 },
 medname:{
     type:String,
@@ -49,13 +54,13 @@ ReminderSchema.methods.requiresNotification = function(date) {
     * Send messages to all appoinment owners via Twilio
     * @param {array} appointments List of appointments.
     */
-    function sendNotifications(appointments) {
-        const client = new Twilio(cfg.twilioAccountSid, cfg.twilioAuthToken);
-        appointments.forEach(function(appointment) {
+    function sendNotifications(reminders) {
+        const client = new Twilio(twilioAccountSid,twilioAuthToken);
+        reminders.forEach(function(reminder) {
             // Create options to send the message
             const options = {
-                to: `+ ${appointment.phoneNumber}`,
-                from: cfg.twilioPhoneNumber,
+                to: `+ ${reminder.phoneNumber}`,
+                from: twilioPhoneNumber,
                 /* eslint-disable max-len */
                 body: `Hi ${appointment.name}. Just a reminder that you have an appointment coming up.`,
                 /* eslint-enable max-len */
@@ -68,8 +73,8 @@ ReminderSchema.methods.requiresNotification = function(date) {
                     console.error(err);
                 } else {
                     // Log the last few digits of a phone number
-                    let masked = appointment.phoneNumber.substr(0,
-                        appointment.phoneNumber.length - 5);
+                    let masked = reminder.phoneNumber.substr(0,
+                        reminder.phoneNumber.length - 5);
                     masked += '*****';
                     console.log(`Message sent to ${masked}`);
                 }

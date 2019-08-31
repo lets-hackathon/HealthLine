@@ -1,14 +1,3 @@
-// var twilio = require('twilio'),
-// var client = new twilio('ACCOUNTSID', 'AUTHTOKEN'),
-// cronJob = require('cron').CronJob;
-// var numbers = ['YOURPHONENUMBER', 'YOURFRIENDSPHONENUMBER'];
-// var textJob = new cronJob( '0 18 * * *', function(){
-//     client.messages.create( { to:'YOURPHONENUMBER', from:'YOURTWILIONUMBER', body:'Hello! Hope you’re having a good day!' }, function( err, data ) {});
-//   },  null, true);
-
-
-//create reminder
-
 const express=require('express');
 const router=express.Router();
 const auth=require('../middleware/auth');
@@ -28,6 +17,7 @@ catch(err){
 }
    
 })
+
 //POST add reminder
 //private
 router.post('/',[auth,[
@@ -79,3 +69,4 @@ try {
 	res.status(500).send('Server Error');
 }
 })
+module.exports=router;
