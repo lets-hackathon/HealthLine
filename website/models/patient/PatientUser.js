@@ -1,5 +1,5 @@
 const mongoose=require('mongoose');
-const DocUserSchema=mongoose.Schema({
+const PatientUserSchema=mongoose.Schema({
 	name:{
 		type:String,
 		required:true
@@ -16,6 +16,11 @@ const DocUserSchema=mongoose.Schema({
 	date:{
 	type:Date,
 	default: Date.now
+},
+role:{
+	type:String,
+	default:"patient",
+	required:true
 }
 });
-module.exports=mongoose.model('docuser',DocUserSchema);
+module.exports=mongoose.model('patientuser',PatientUserSchema);

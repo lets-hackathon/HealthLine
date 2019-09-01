@@ -1,9 +1,13 @@
 const mongoose=require('mongoose');
 const ProfileSchema=mongoose.Schema({
-    user:{
+    patientuser:{
 		type:mongoose.Schema.Types.ObjectId,
-		ref:'users'
-	},
+		ref:'patientuser'
+    },
+    myReport:[{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:"myreport"
+    }],
     name:{
 		type:String,
 		required:true

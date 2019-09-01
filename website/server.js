@@ -1,6 +1,8 @@
 const express=require('express');
 const connectDB=require('./config/db');
 const path=require('path');
+const roles = require("user-groups-roles");
+
 // const runReminder=require('./config/reminder');
 const cors=require('cors');
 const app=express();
@@ -11,12 +13,15 @@ connectDB();
 // runReminder();
 const Reminder=require('./models/Reminder');
 //Init middleware
-console.log("hello");
 app.use(express.json({extended:false}));
 app.use(cors());
 
-console.log("bye");
 //define routes
+
+
+// roles.createNewRole("patient");
+// roles.createNewRole("doctor");
+
 app.use('/api/auth',require('./routes/auth'));
 app.use('/api/profile',require('./routes/profile'));
 app.use('/api/records',require('./routes/records'));

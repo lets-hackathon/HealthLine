@@ -1,13 +1,13 @@
 const mongoose=require('mongoose');
 const DocProfileSchema=mongoose.Schema({
-    user:[{
+    patientuser:[{
 		type:mongoose.Schema.Types.ObjectId,
-		ref:'users'
+		ref:'patientuser'
     }],
-    hospital:[{
-        type:mongoose.Schema.Types.ObjectId,
-		ref:'hospitals'
-    }],
+    doctoruser:{
+      type:mongoose.Schema.Types.ObjectId,
+      ref:'doctoruser'
+    },
     name:{
 		type:String,
 		required:true

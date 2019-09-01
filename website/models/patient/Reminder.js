@@ -5,7 +5,7 @@ const twilioAuthToken=config.get('twilioAuthToken');
 const twilioPhoneNumber=config.get('twilioPhoneNumber');
 
 
-const User=require('./User.js');
+const User=require('./PatientUser');
 const ReminderSchema=mongoose.Schema({
 user:{
     type:mongoose.Schema.Types.ObjectId,

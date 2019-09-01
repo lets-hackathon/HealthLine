@@ -4,13 +4,13 @@
   "description": "health related website",
   "main": "server.js",
   "scripts": {
-    "start":"node server.js",
-    "server":"nodemon server.js",
-    "scheduler":"nodemon scheduler.js",
+    "start": "node server.js",
+    "server": "nodemon server.js",
+    "scheduler": "nodemon scheduler.js",
     "client": "npm start --prefix client",
-    "clientinstall":"npm install --prefix client",
-    "dev":"concurrently \"npm run server\" \"npm run client\" \"npm run scheduler\""
-    },
+    "clientinstall": "npm install --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\" \"npm run scheduler\""
+  },
   "author": "kanishk",
   "license": "ISC",
   "dependencies": {
@@ -25,6 +25,7 @@
     "moment": "^2.24.0",
     "mongoose": "^5.6.10",
     "nodemon": "^1.19.1",
-    "twilio": "^3.33.4"
+    "twilio": "^3.33.4",
+    "user-groups-roles": "^2.0.4"
   }
 }
