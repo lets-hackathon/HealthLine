@@ -13,8 +13,15 @@ const DoctorUser = require('../models/doctor/DoctorUser');
 // @desc      Get logged in user
 // @access    Private
 router.get('/', auth, async (req, res) => {
+
   try {
-    const user = await User.findById(req.user.id).select('-password');
+    const user;
+    if(req.user.role=="patient"){
+      user = await PatientUser.findById(req.user.id).select('-password');
+    }
+    else if(req.user.role=='doctor'){
+      user = await DoctorUser.findById(req.user.id).select('-password');
+    }
     res.json(user);
   } catch (err) {
     console.error(err.message);
