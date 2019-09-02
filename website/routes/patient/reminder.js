@@ -3,12 +3,13 @@ const router=express.Router();
 const auth=require('../../middleware/auth');
 const { check, validationResult } = require('express-validator/check');
 
-const Reminder=require('../models/Reminder');
+const Reminder=require('../models/patient/Reminder');
 
 //get reminder from /api/reminder
 //private
 router.get('/',auth,async (req,res)=>{
-    try{ const reminder= await Reminder.findById({user:req.user.id});
+    try{ 
+	const reminder= await Reminder.findById({user:req.user.id});
     res.json(reminder);
 }
 catch(err){

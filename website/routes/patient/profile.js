@@ -3,14 +3,14 @@ const router=express.Router();
 const auth=require('../../middleware/auth');
 const { check, validationResult } = require('express-validator/check');
 
-const Profile=require('../models/Profile');
+const PatientProfile=require('../models/patient/PatientProfile');
 
 //@route Get api/contacts
 //@desc Get all users
 //@access Private
 router.get('/',auth,async (req,res)=>{
 try{
-	const profile=await Profile.findById({user:req.user.id});
+	const profile=await PatientProfile.findById({user:req.user.id});
 	res.json(profile);
 
 } catch(err){
@@ -32,7 +32,7 @@ router.post('/',[auth,[
 	}
 	const {name,email,phone,type}=req.body;
 	try{
-		const newProfile=new Profile({
+		const newProfile=new PatientProfile({
             user:req.user.id,
             name,
             age,
@@ -80,13 +80,13 @@ router.put('/:id',auth,async (req,res)=>{
     if(emergencyPhone) profileFields.emergencyPhone=emergencyPhone;
 	if(RecordId) profileFields.RecordId=RecordId;
 	try{
-		let profile=await Profile.findById(req.params.id);
+		let profile=await PatientProfile.findById(req.params.id);
 		if(!profile) return res.status(404).json({msg:'Profile not found'});
 		//make sure user owns profile
 		if(profile.user.toString()!==req.user.id){
 			return res.status(401).json({msg:'Not authorized'});
 		}
-		profile=await Profile.findByIdAndUpdate(req.params.id,
+		profile=await PatientProfile.findByIdAndUpdate(req.params.id,
 		{$set:profileFields},
 		{new:true}
 		);

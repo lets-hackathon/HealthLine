@@ -1,6 +1,6 @@
 'use strict';
 
-const Reminder = require('../models/Reminder');
+const Reminder = require('../models/patient/Reminder');
 
 const notificationWorkerFactory = function() {
   return {
