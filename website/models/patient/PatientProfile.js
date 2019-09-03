@@ -36,10 +36,6 @@ const ProfileSchema=mongoose.Schema({
         type:String,
         required:true
     },
-	password:{
-		type:String,
-		required:true
-    },
     RecordId:{
         type:String,
         unique:true

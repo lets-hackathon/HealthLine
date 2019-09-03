@@ -4,13 +4,14 @@ const auth=require('../../middleware/auth');
 const { check, validationResult } = require('express-validator/check');
 
 const PatientProfile=require('../../models/patient/PatientProfile');
+const PatientUser=require('../../models/patient/PatientUser');
 
 //@route Get api/contacts
 //@desc Get all users
 //@access Private
 router.get('/',auth,async (req,res)=>{
 try{
-	const profile=await PatientProfile.findById({user:req.user.id});
+	const profile=await PatientProfile.findOne({patientuser:req.user.id});
 	res.json(profile);
 
 } catch(err){
@@ -24,24 +25,24 @@ try{
 //@desc Add profile
 //@access Private
 router.post('/',[auth,[
-	check('name','Name is required').not().isEmpty()
+	check('address','Address is required').not().isEmpty()
 ]],async (req,res)=>{
 	const errors=validationResult(req);
 	if(!errors.isEmpty()){
 		return res.status(400).json({errors:errors.array() });
 	}
-	const {name,email,phone,type}=req.body;
+	const {phone,age,avatar,address,emergencyPhone,RecordId}=req.body;
+	const patient=await PatientUser.findById(req.user.id);
 	try{
 		const newProfile=new PatientProfile({
-            user:req.user.id,
-            name,
+            patientuser:req.user.id,
+            name:patient.name,
             age,
             avatar,
-            email,
+            email:patient.email,
             address,
             phone,
             emergencyPhone,
-            type,
             RecordId
 		});
 		const profile=await newProfile.save();
