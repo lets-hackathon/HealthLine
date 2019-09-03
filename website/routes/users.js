@@ -30,9 +30,9 @@ router.post('/',
     const { name, email, password,role } = req.body;
     
       try {
-      
+      let user;
         if(role=="patient"){
-          let user = await PatientUser.findOne({ email });
+           user = await PatientUser.findOne({ email });
   
           if (user) {
             return res.status(400).json({ msg: 'User already exists' });
@@ -45,7 +45,7 @@ router.post('/',
             role
           });
         }else if(role=="doctor"){
-          let user = await DoctorUser.findOne({ email });
+           user = await DoctorUser.findOne({ email });
   
           if (user) {
             return res.status(400).json({ msg: 'User already exists' });

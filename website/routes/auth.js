@@ -15,14 +15,18 @@ const DoctorUser = require('../models/doctor/DoctorUser');
 router.get('/', auth, async (req, res) => {
 
   try {
-    const user;
-    if(req.user.role=="patient"){
-      user = await PatientUser.findById(req.user.id).select('-password');
-    }
-    else if(req.user.role=='doctor'){
-      user = await DoctorUser.findById(req.user.id).select('-password');
-    }
-    res.json(user);
+    console.log("hello frens");
+   
+    console.log(req.user.id);
+      const patientUser = await PatientUser.findById(req.user.id).select('-password');  
+      const doctorUser = await DoctorUser.findById(req.user.id).select('-password');
+     if(patientUser){
+      res.json(patientUser);
+     }
+     else if(doctorUser){
+       res.json(doctorUser);
+     }
+
   } catch (err) {
     console.error(err.message);
     res.status(500).send('Server Error');
@@ -48,13 +52,14 @@ router.post(
     const { email, password,role } = req.body;
     if(role=='patient'){
     try {
+      console.log("patient auth");
       let patientUser = await PatientUser.findOne({ email });
 
       if (!patientUser) {
         return res.status(400).json({ msg: 'Invalid Credentials' });
       }
 
-      const isMatch = await bcrypt.compare(password, user.password);
+      const isMatch = await bcrypt.compare(password, patientUser.password);
 
       if (!isMatch) {
         return res.status(400).json({ msg: 'Invalid Credentials' });
@@ -84,6 +89,8 @@ router.post(
   }
   else if(role=="doctor"){
     try {
+      console.log("doctor auth");
+
       let doctorUser = await DoctorUser.findOne({ email });
 
       if (!doctorUser) {

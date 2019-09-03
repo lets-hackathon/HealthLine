@@ -3,7 +3,7 @@ const router=express.Router();
 const auth=require('../../middleware/auth');
 const { check, validationResult } = require('express-validator/check');
 
-const PatientProfile=require('../models/patient/PatientProfile');
+const PatientProfile=require('../../models/patient/PatientProfile');
 
 //@route Get api/contacts
 //@desc Get all users

@@ -3,7 +3,7 @@ const router=express.Router();
 const auth=require('../../middleware/auth');
 const { check, validationResult } = require('express-validator/check');
 
-const Reminder=require('../models/patient/Reminder');
+const Reminder=require('../../models/patient/Reminder');
 
 //get reminder from /api/reminder
 //private

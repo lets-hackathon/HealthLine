@@ -3,8 +3,8 @@ const router=express.Router();
 const auth=require('../../middleware/auth');
 const { check, validationResult } = require('express-validator/check');
 
-const User=require('../models/User');
-const Record=require('../models/Record');
+const User=require('../../models/patient/PatientUser');
+const Record=require('../../models/patient/Record');
 
 //@route Get api/records
 //@desc Get all records

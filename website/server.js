@@ -11,7 +11,7 @@ connectDB();
 
 //run reminder
 // runReminder();
-const Reminder=require('./models/Reminder');
+const Reminder=require('./models/patient/Reminder');
 //Init middleware
 app.use(express.json({extended:false}));
 app.use(cors());
