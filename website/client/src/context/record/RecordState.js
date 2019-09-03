@@ -19,11 +19,10 @@ from '../types';
 
 const RecordState=props=>{
 	const initialState={
-		contacts:null,
+		records:null,
 		current:null,
 		filtered:null,
 		error:null
-		
 	};
 	const [state,dispatch]=useReducer(RecordReducer,initialState);
 	

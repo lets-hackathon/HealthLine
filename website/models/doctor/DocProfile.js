@@ -21,10 +21,6 @@ const DocProfileSchema=mongoose.Schema({
         type:String,
         required:true
     },
-	password:{
-		type:String,
-		required:true
-    },
     DocId:{
         type:String,
         unique:true,

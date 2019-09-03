@@ -14,7 +14,7 @@ import Home from './components/patient/Home';
 import Blog from './components/patient/Blog';
 import Misc from './components/patient/Misc';
 import Profile from './components/patient/Profile';
-import Record from './components/patient/Record';
+//import Record from './components/patient/Record';
 import Reminder from './components/patient/Reminder';
 import SocialPresence from './components/patient/SocialPresence';
 import SymptomTracker from './components/patient/SymptomTracker';
@@ -40,7 +40,7 @@ export default function App() {
  	<Route exact path='/' component={Profile}/>
 	<Route exact path='/blog' component={Blog}/> 
  	<Route exact path='/misc' component={Misc}/>
- 	<Route exact path='/record' component={Record}/>
+ 	{/* <Route exact path='/record' component={Record}/> */}
  <Route exact path='/reminder' component={Reminder}/>
  <Route exact path='/socialpresence' component={SocialPresence}/>
 <Route exact path='/symptomtracker' component={SymptomTracker}/>
