@@ -67,26 +67,32 @@ router.put('/:id',auth,async (req,res)=>{
         address,
         phone,
         emergencyPhone,
-        
         RecordId}=req.body;
-	
+		const use={};
+		if(name) use.name=name;
+		if(email) use.email=email;
+
 	//build a profile
 	const profileFields={};
-    if(name) profileFields.name=name;
     if(age) profileFields.age=age;
     if(avatar) profileFields.avatar=avatar;
-    if(email) profileFields.email=email;
     if(address) profileFields.address=address;
     if(phone) profileFields.phone=phone;
     if(emergencyPhone) profileFields.emergencyPhone=emergencyPhone;
 	if(RecordId) profileFields.RecordId=RecordId;
+	if(name) profileFields.name=name;
+	if(email) profileFields.email=email;
+
 	try{
 		let profile=await PatientProfile.findById(req.params.id);
 		if(!profile) return res.status(404).json({msg:'Profile not found'});
 		//make sure user owns profile
-		if(profile.user.toString()!==req.user.id){
+		if(profile.patientuser.toString()!==req.user.id){
 			return res.status(401).json({msg:'Not authorized'});
 		}
+		user=await PatientUser.findByIdAndUpdate(req.user.id,
+			{$set:use},
+			{new:true});
 		profile=await PatientProfile.findByIdAndUpdate(req.params.id,
 		{$set:profileFields},
 		{new:true}
