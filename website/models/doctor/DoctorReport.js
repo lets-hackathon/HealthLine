@@ -2,10 +2,13 @@ const mongoose=require('mongoose');
 
 const DoctorReportSchema=mongoose.Schema({
 //patient linking how
-RecordId:{
-type:String,
-required:true,
-unique:true
+doctoruser:{
+    type:mongoose.Schema.Types.ObjectId,
+    ref:'doctoruser'
+  },
+patientuser:{
+    type:mongoose.Schema.Types.ObjectId,
+    ref:'patientuser'
 },
 disease:{
     type:String,

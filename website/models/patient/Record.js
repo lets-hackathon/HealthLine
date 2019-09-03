@@ -17,8 +17,7 @@ const RecordSchema=mongoose.Schema({
         type:String
     },
     date:{
-        type:Date,
-        default:Date.now()
+        type:String,
     }
 });
 module.exports=mongoose.model('record',RecordSchema);

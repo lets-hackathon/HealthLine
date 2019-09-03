@@ -22,13 +22,25 @@ app.use(cors());
 // roles.createNewRole("patient");
 // roles.createNewRole("doctor");
 
+//auth checked
 app.use('/api/auth',require('./routes/auth'));
+
+//profile checked
 app.use('/api/patient/profile',require('./routes/patient/profile'));
+
+//records checked
 app.use('/api/patient/records',require('./routes/patient/records'));
+
+//users checked
 app.use('/api/users',require('./routes/users'));
+
+// app.use('/api/patient/record',require('./routes/pa'))
+
 //reminder route giving error
 app.use('/api/patient/reminder',require('./routes/patient/reminder'));
 console.log("tata");
+
+app.use('/api/doctor/report',require('./routes/doctor/docreport.js'));
 
 
 
