@@ -15,7 +15,7 @@ const RecordForm = () => {
       <div className="page-content">
         <SideBar />
         <div className="container-fluid">
-          <div className="card">
+          <div className="card" style={{ marginTop: "25px" }}>
             <div className="card-header header-elements-inline">
               <h6 className="card-title">Submit Personal Record</h6>
               {/* <div className="header-elements">

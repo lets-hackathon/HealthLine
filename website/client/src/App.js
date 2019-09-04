@@ -14,6 +14,7 @@ import Blog from "./components/patient/Blog";
 import Misc from "./components/patient/Misc";
 import Profile from "./components/patient/Profile";
 import RecordForm from "./components/patient/records/RecordForm";
+import RecordRender from "./components/patient/records/RecordRender";
 import Reminder from "./components/patient/Reminder";
 import SocialPresence from "./components/patient/SocialPresence";
 import SymptomTracker from "./components/patient/SymptomTracker";
@@ -34,6 +35,7 @@ export default function App() {
         <Switch>
           <Route exact path="/home" component={Home} />
           <Route exact path="/recordform" component={RecordForm} />
+          <Route exact path="/RecordRender" component={RecordRender} />
 
           <Route exact path="/register" component={Register} />
           <Route exact path="/login" component={Login} />
