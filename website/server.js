@@ -2,6 +2,7 @@ const express=require('express');
 const connectDB=require('./config/db');
 const path=require('path');
 const roles = require("user-groups-roles");
+const scheduler = require('./scheduler');
 
 // const runReminder=require('./config/reminder');
 const cors=require('cors');
@@ -19,8 +20,9 @@ app.use(cors());
 //define routes
 
 
-// roles.createNewRole("patient");
-// roles.createNewRole("doctor");
+roles.createNewRole("patient");
+roles.createNewRole("doctor");
+
 
 //auth checked
 app.use('/api/auth',require('./routes/auth'));
@@ -59,3 +61,4 @@ const PORT=process.env.PORT||5000;
 app.listen(PORT,()=>{
 	console.log("server is listening");
 })
+scheduler.start();

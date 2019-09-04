@@ -30,8 +30,8 @@ message:{
 timeZone:String,
 time:{type:Date,index:true}
 });
-
 ReminderSchema.methods.requiresNotification = function(date) {
+    this.time.year(date.year()).month(date.month()).date(date.date());
     return Math.round(moment.duration(moment(this.time).tz(this.timeZone).utc()
                             .diff(moment(date).utc())
                           ).asMinutes()) === this.notification;
@@ -88,5 +88,6 @@ ReminderSchema.methods.requiresNotification = function(date) {
         }
     }
 };
+const Reminder=mongoose.model('reminder',ReminderSchema);
 
-module.exports=mongoose.model('reminder',ReminderSchema);
+module.exports=Reminder;
