@@ -1,15 +1,20 @@
 const express=require('express');
 const router=express.Router();
+const momentTimeZone = require('moment-timezone');
+const moment = require('moment');
 const auth=require('../../middleware/auth');
 const { check, validationResult } = require('express-validator/check');
-
+const PatientProfile=require("../../models/patient/PatientProfile");
 const Reminder=require('../../models/patient/Reminder');
 
+const getTimeZones = function() {
+	return momentTimeZone.tz.names();
+  };
 //get reminder from /api/reminder
 //private
 router.get('/',auth,async (req,res)=>{
     try{ 
-	const reminder= await Reminder.findById({user:req.user.id});
+	const reminder= await Reminder.find({user:req.user.id});
     res.json(reminder);
 }
 catch(err){
@@ -22,23 +27,26 @@ catch(err){
 //POST add reminder
 //private
 router.post('/',[auth,[
-    check('medname','Medicine Name is required').not().isEmpty(),
-    check('hour','Hour is required').not().isEmpty(),
-    check('minute','Minute is required').not().isEmpty(),
+    check('medname','Medicine Name is required').not().isEmpty()
 
 ]],async (req,res)=>{
     const errors=validationResult(req);
 	if(!errors.isEmpty()){
 		return res.status(400).json({errors:errors.array() });
-    }
-    const {medname,hour,minute,message}=req.body;
+	}
+	const patient=await PatientProfile.find({patientuser:req.user.id});
+	const {medname,message,timeZone}=req.body;
+	time=moment(req.body.time, 'MM-DD-YYYY hh:mma');
+	// const timeZone=getTimeZones();
+	
 	try{
 		const newReminder=new Reminder({
             user:req.user.id,
             medname,
-            hour,
-			minute,
-			message
+			message,
+			phoneNumber:patient.phone,
+			time,
+			timeZone
 		});
 		const reminder=await newReminder.save();
 		res.json(reminder);

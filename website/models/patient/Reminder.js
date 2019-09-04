@@ -3,26 +3,24 @@ const config=require('config');
 const twilioAccountSid=config.get('twilioAccountSid');
 const twilioAuthToken=config.get('twilioAuthToken');
 const twilioPhoneNumber=config.get('twilioPhoneNumber');
-
+const moment=require('moment');
 
 const User=require('./PatientUser');
 const ReminderSchema=mongoose.Schema({
 user:{
     type:mongoose.Schema.Types.ObjectId,
-    // ref="users"
+    
+},
+phoneNumber:{
+    type:String
 },
 medname:{
     type:String,
     required:true
 },
-// hour:{
-//     type:Number,
-//     required:true
-// },
-// minute:{
-//     type:Number,
-//     required:true
-// },
+notification:{
+    type:String
+},
 message:{
     type:String,
     default:""
@@ -30,10 +28,12 @@ message:{
 timeZone:String,
 time:{type:Date,index:true}
 });
-ReminderSchema.methods.requiresNotification = function(date) {
-    this.time.year(date.year()).month(date.month()).date(date.date());
+ReminderSchema.methods.requiresNotification = function(dater) {
+    this.time.setDate(dater.getDate());
+    this.time.setFullYear(dater.getFullYear());
+    this.time.setMonth(dater.getMonth()+1).
     return Math.round(moment.duration(moment(this.time).tz(this.timeZone).utc()
-                            .diff(moment(date).utc())
+                            .diff(moment(dater).utc())
                           ).asMinutes()) === this.notification;
   };
   
@@ -62,7 +62,7 @@ ReminderSchema.methods.requiresNotification = function(date) {
                 to: `+ ${reminder.phoneNumber}`,
                 from: twilioPhoneNumber,
                 /* eslint-disable max-len */
-                body: `Hi ${appointment.name}. Just a reminder that you have an appointment coming up.`,
+                body: ` ${reminder.message}`,
                 /* eslint-enable max-len */
             };
 
