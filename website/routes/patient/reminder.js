@@ -34,9 +34,12 @@ router.post('/',[auth,[
 	if(!errors.isEmpty()){
 		return res.status(400).json({errors:errors.array() });
 	}
+	console.log("reminder adding");
 	const patient=await PatientProfile.find({patientuser:req.user.id});
-	const {medname,message,timeZone}=req.body;
-	time=moment(req.body.time, 'MM-DD-YYYY hh:mma');
+	const {medname,message,timeZone,notification}=req.body;
+	const time=moment(req.body.time, 'MM-DD-YYYY hh:mma');
+	const timer=(time.toString());
+	// time.local();
 	// const timeZone=getTimeZones();
 	
 	try{
@@ -45,8 +48,9 @@ router.post('/',[auth,[
             medname,
 			message,
 			phoneNumber:patient.phone,
-			time,
-			timeZone
+			time:timer,
+			timeZone,
+			notification
 		});
 		const reminder=await newReminder.save();
 		res.json(reminder);
