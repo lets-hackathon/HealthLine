@@ -524,9 +524,9 @@ const Header = () => {
                 <a href="#" className="dropdown-item">
                   <i className="icon-user-plus" /> My profile
                 </a>
-                <a href="#" className="dropdown-item">
+                {/* <a href="#" className="dropdown-item">
                   <i className="icon-coins" /> My balance
-                </a>
+                </a> */}
                 <a href="#" className="dropdown-item">
                   <i className="icon-comment-discussion" /> Messages{" "}
                   <span className="badge badge-pill bg-blue ml-auto">58</span>

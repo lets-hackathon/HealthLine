@@ -48,31 +48,30 @@ const SideBar = () => {
                     <a href="index.html" className="nav-link active">
                       <i className="icon-home4" />
                       <span>
-                        Dashboard
+                        My Profile
                       </span>
                     </a>
                   </li>
                   <li className="nav-item nav-item-submenu">
-                    <a href="#" className="nav-link"><i className="icon-copy" /> <span>Layouts</span></a>
+                    <a href="#" className="nav-link"><i className="icon-copy" /> <span>My Reminders</span></a>
                     <ul className="nav nav-group-sub" data-submenu-title="Layouts">
-                      <li className="nav-item"><a href="index.html" className="nav-link active">Default layout</a></li>
-                      <li className="nav-item"><a href="http://demo.interface.club/limitless/demo/bs4/Template/layout_2/LTR/default/full/index.html" className="nav-link">Layout 2</a></li>
-                      <li className="nav-item"><a href="http://demo.interface.club/limitless/demo/bs4/Template/layout_3/LTR/default/full/index.html" className="nav-link">Layout 3</a></li>
-                      <li className="nav-item"><a href="http://demo.interface.club/limitless/demo/bs4/Template/layout_4/LTR/default/full/index.html" className="nav-link">Layout 4</a></li>
-                      <li className="nav-item"><a href="http://demo.interface.club/limitless/demo/bs4/Template/layout_5/LTR/default/full/index.html" className="nav-link">Layout 5</a></li>
-                      <li className="nav-item"><a href="http://demo.interface.club/limitless/demo/bs4/Template/layout_6/LTR/default/full/index.html" className="nav-link disabled">Layout 6 <span className="badge bg-transparent align-self-center ml-auto">Coming soon</span></a></li>
+                      <li className="nav-item"><a href="index.html" className="nav-link active">Set Reminders</a></li>
+                      <li className="nav-item"><a href="http://demo.interface.club/limitless/demo/bs4/Template/layout_2/LTR/default/full/index.html" className="nav-link">Show My Reminders</a></li>
+                      {/* <li className="nav-item"><a href="http://demo.interface.club/limitless/demo/bs4/Template/layout_6/LTR/default/full/index.html" className="nav-link disabled">Layout 6 <span className="badge bg-transparent align-self-center ml-auto">Coming soon</span></a></li> */}
                     </ul>
                   </li>
                   <li className="nav-item nav-item-submenu">
-                    <a href="#" className="nav-link"><i className="icon-color-sampler" /> <span>Themes</span></a>
+                    <a href="#" className="nav-link"><i className="icon-color-sampler" /> <span>My Records</span></a>
                     <ul className="nav nav-group-sub" data-submenu-title="Themes">
-                      <li className="nav-item"><a href="index.html" className="nav-link active">Default</a></li>
-                      <li className="nav-item"><a href="http://demo.interface.club/limitless/demo/bs4/Template/layout_1/LTR/material/full/index.html" className="nav-link">Material</a></li>
-                      <li className="nav-item"><a href="http://demo.interface.club/limitless/demo/bs4/Template/layout_1/LTR/dark/full/index.html" className="nav-link disabled">Dark <span className="badge bg-transparent align-self-center ml-auto">Coming soon</span></a></li>
-                      <li className="nav-item"><a href="http://demo.interface.club/limitless/demo/bs4/Template/layout_1/LTR/clean/full/index.html" className="nav-link disabled">Clean <span className="badge bg-transparent align-self-center ml-auto">Coming soon</span></a></li>
+                      <li className="nav-item"><a href="index.html" className="nav-link active">Create Personal Record</a></li>
+                      <li className="nav-item"><a href="http://demo.interface.club/limitless/demo/bs4/Template/layout_1/LTR/material/full/index.html" className="nav-link">Show my Personal record</a></li>
+                      <li className="nav-item"><a href="http://demo.interface.club/limitless/demo/bs4/Template/layout_1/LTR/material/full/index.html" className="nav-link">Doctor Reports</a></li>
+
+                      {/* <li className="nav-item"><a href="http://demo.interface.club/limitless/demo/bs4/Template/layout_1/LTR/dark/full/index.html" className="nav-link disabled">Dark <span className="badge bg-transparent align-self-center ml-auto">Coming soon</span></a></li> */}
+                      {/* <li className="nav-item"><a href="http://demo.interface.club/limitless/demo/bs4/Template/layout_1/LTR/clean/full/index.html" className="nav-link disabled">Clean <span className="badge bg-transparent align-self-center ml-auto">Coming soon</span></a></li> */}
                     </ul>
                   </li>
-                  <li className="nav-item nav-item-submenu">
+                  {/* <li className="nav-item nav-item-submenu">
                     <a href="#" className="nav-link"><i className="icon-stack" /> <span>Starter kit</span></a>
                     <ul className="nav nav-group-sub" data-submenu-title="Starter kit">
                       <li className="nav-item"><a href="http://demo.interface.club/limitless/demo/bs4/Template/layout_1/LTR/default/seed/layout_nav_horizontal.html" className="nav-link">Horizontal navigation</a></li>
@@ -106,18 +105,19 @@ const SideBar = () => {
                       <li className="nav-item"><a href="http://demo.interface.club/limitless/demo/bs4/Template/layout_1/LTR/default/seed/navbar_fixed_both.html" className="nav-link">Both navbars fixed</a></li>
                       <li className="nav-item"><a href="http://demo.interface.club/limitless/demo/bs4/Template/layout_1/LTR/default/seed/layout_fixed.html" className="nav-link">Fixed layout</a></li>
                     </ul>
-                  </li>
-                  <li className="nav-item">
+                  </li> */}
+                  {/* <li className="nav-item">
                     <a href="changelog.html" className="nav-link">
                       <i className="icon-list-unordered" />
                       <span>Changelog</span>
                       <span className="badge bg-blue-400 align-self-center ml-auto">2.2</span>
                     </a>
-                  </li>
-                  <li className="nav-item"><a href="http://demo.interface.club/limitless/demo/bs4/Template/layout_1/RTL/default/full/index.html" className="nav-link"><i className="icon-width" /> <span>RTL version</span></a></li>
+                  </li> */}
+                                    <li className="nav-item"><a href="http://demo.interface.club/limitless/demo/bs4/Template/layout_1/RTL/default/full/index.html" className="nav-link"><i className="icon-width" /> <span>Symptom Tracker</span></a></li>
+                  <li className="nav-item"><a href="http://demo.interface.club/limitless/demo/bs4/Template/layout_1/RTL/default/full/index.html" className="nav-link"><i className="icon-width" /> <span>Social Media Analysis</span></a></li>
                   {/* /main */}
                   {/* Forms */}
-                  <li className="nav-item-header"><div className="text-uppercase font-size-xs line-height-xs">Forms</div> <i className="icon-menu" title="Forms" /></li>
+                  {/* <li className="nav-item-header"><div className="text-uppercase font-size-xs line-height-xs">Forms</div> <i className="icon-menu" title="Forms" /></li>
                   <li className="nav-item nav-item-submenu">
                     <a href="#" className="nav-link"><i className="icon-pencil3" /> <span>Form components</span></a>
                     <ul className="nav nav-group-sub" data-submenu-title="Form components">
@@ -170,10 +170,10 @@ const SideBar = () => {
                       <li className="nav-item"><a href="form_layout_horizontal.html" className="nav-link">Horizontal form</a></li>
                       <li className="nav-item"><a href="form_layout_horizontal_styled.html" className="nav-link disabled">Custom styles <span className="badge bg-transparent align-self-center ml-auto">Coming soon</span></a></li>
                     </ul>
-                  </li>
+                  </li> */}
                   {/* /forms */}
                   {/* Components */}
-                  <li className="nav-item-header"><div className="text-uppercase font-size-xs line-height-xs">Components</div> <i className="icon-menu" title="Components" /></li>
+                  {/* <li className="nav-item-header"><div className="text-uppercase font-size-xs line-height-xs">Components</div> <i className="icon-menu" title="Components" /></li>
                   <li className="nav-item nav-item-submenu">
                     <a href="#" className="nav-link"><i className="icon-grid" /> <span>Basic components</span></a>
                     <ul className="nav nav-group-sub" data-submenu-title="Basic components">
@@ -274,10 +274,10 @@ const SideBar = () => {
                       <li className="nav-item"><a href="icons_material.html" className="nav-link">Material</a></li>
                       <li className="nav-item"><a href="icons_fontawesome.html" className="nav-link">Font awesome</a></li>
                     </ul>
-                  </li>
+                  </li> */}
                   {/* /components */}
                   {/* Layout */}
-                  <li className="nav-item-header"><div className="text-uppercase font-size-xs line-height-xs">Layout</div> <i className="icon-menu" title="Layout options" /></li>
+                  {/* <li className="nav-item-header"><div className="text-uppercase font-size-xs line-height-xs">Layout</div> <i className="icon-menu" title="Layout options" /></li>
                   <li className="nav-item nav-item-submenu">
                     <a href="#" className="nav-link"><i className="icon-stack2" /> <span>Page layouts</span></a>
                     <ul className="nav nav-group-sub" data-submenu-title="Page layouts">
@@ -437,10 +437,10 @@ const SideBar = () => {
                       </li>
                       <li className="nav-item"><a href="#" className="nav-link"><i className="icon-chrome" /> Second level</a></li>
                     </ul>
-                  </li>
+                  </li> */}
                   {/* /layout */}
                   {/* Data visualization */}
-                  <li className="nav-item-header"><div className="text-uppercase font-size-xs line-height-xs">Data visualization</div> <i className="icon-menu" title="Data visualization" /></li>
+                  {/* <li className="nav-item-header"><div className="text-uppercase font-size-xs line-height-xs">Data visualization</div> <i className="icon-menu" title="Data visualization" /></li>
                   <li className="nav-item nav-item-submenu">
                     <a href="#" className="nav-link"><i className="icon-graph" /> <span>Echarts library</span></a>
                     <ul className="nav nav-group-sub" data-submenu-title="ECharts library">
@@ -540,10 +540,10 @@ const SideBar = () => {
                       <li className="nav-item"><a href="maps_vector.html" className="nav-link">Vector maps</a></li>
                       <li className="nav-item"><a href="maps_echarts.html" className="nav-link disabled">ECharts maps <span className="badge bg-transparent align-self-center ml-auto">Coming soon</span></a></li>
                     </ul>
-                  </li>
-                  {/* /data visualization */}
+                </li> */}
+                  {/*data visualization */}
                   {/* Extensions */}
-                  <li className="nav-item-header"><div className="text-uppercase font-size-xs line-height-xs">Extensions</div> <i className="icon-menu" title="Extensions" /></li>
+                  {/* <li className="nav-item-header"><div className="text-uppercase font-size-xs line-height-xs">Extensions</div> <i className="icon-menu" title="Extensions" /></li>
                   <li className="nav-item nav-item-submenu">
                     <a href="#" className="nav-link"><i className="icon-puzzle4" /> <span>Extensions</span></a>
                     <ul className="nav nav-group-sub" data-submenu-title="Extensions">
@@ -587,10 +587,10 @@ const SideBar = () => {
                       <li className="nav-item"><a href="internationalization_fallback.html" className="nav-link">Language fallback</a></li>
                       <li className="nav-item"><a href="internationalization_callbacks.html" className="nav-link">Callbacks</a></li>
                     </ul>
-                  </li>
+                  </li> */}
                   {/* /extensions */}
                   {/* Tables */}
-                  <li className="nav-item-header"><div className="text-uppercase font-size-xs line-height-xs">Tables</div> <i className="icon-menu" title="Tables" /></li>
+                  {/* <li className="nav-item-header"><div className="text-uppercase font-size-xs line-height-xs">Tables</div> <i className="icon-menu" title="Tables" /></li>
                   <li className="nav-item nav-item-submenu">
                     <a href="#" className="nav-link"><i className="icon-table2" /> <span>Basic tables</span></a>
                     <ul className="nav nav-group-sub" data-submenu-title="Basic tables">
@@ -655,10 +655,10 @@ const SideBar = () => {
                       <li className="nav-item"><a href="table_responsive.html" className="nav-link">Responsive basic tables</a></li>
                       <li className="nav-item"><a href="datatable_responsive.html" className="nav-link">Responsive data tables</a></li>
                     </ul>
-                  </li>
+                  </li> */}
                   {/* /tables */}
                   {/* Page kits */}
-                  <li className="nav-item-header"><div className="text-uppercase font-size-xs line-height-xs">Page kits</div> <i className="icon-menu" title="Page kits" /></li>
+                  {/* <li className="nav-item-header"><div className="text-uppercase font-size-xs line-height-xs">Page kits</div> <i className="icon-menu" title="Page kits" /></li>
                   <li className="nav-item nav-item-submenu">
                     <a href="#" className="nav-link"><i className="icon-grid6" /> <span>General pages</span></a>
                     <ul className="nav nav-group-sub" data-submenu-title="General pages">
@@ -818,7 +818,7 @@ const SideBar = () => {
                       <li className="nav-item"><a href="widgets_menu.html" className="nav-link disabled">Menu widgets <span className="badge bg-transparent align-self-center ml-auto">Coming soon</span></a></li>
                       <li className="nav-item"><a href="widgets_form.html" className="nav-link disabled">Form widgets <span className="badge bg-transparent align-self-center ml-auto">Coming soon</span></a></li>
                     </ul>
-                  </li>
+                  </li> */}
                   {/* /page kits */}
                 </ul>
               </div>

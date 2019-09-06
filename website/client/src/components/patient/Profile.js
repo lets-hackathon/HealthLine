@@ -484,7 +484,7 @@ const Profile = () => {
                 </div>
                 {/* /share your thoughts */}
                 {/* Balance changes */}
-                <div className="card">
+                {/* <div className="card">
                   <div className="card-header bg-transparent header-elements-inline">
                     <span className="card-title font-weight-semibold">Balance changes</span>
                     <div className="header-elements">
@@ -496,10 +496,10 @@ const Profile = () => {
                       <div className="chart has-fixed-height" id="balance_statistics" />
                     </div>
                   </div>
-                </div>
+                </div> */}
                 {/* /balance changes */}
                 {/* Latest connections */}
-                <div className="card">
+                {/* <div className="card">
                   <div className="card-header bg-transparent header-elements-inline">
                     <span className="card-title font-weight-semibold">Latest connections</span>
                     <div className="header-elements">
@@ -608,7 +608,7 @@ const Profile = () => {
                       </a>
                     </li>
                   </ul>
-                </div>
+                </div> */}
                 {/* /latest connections */}
               </div>
               {/* /sidebar content */}
