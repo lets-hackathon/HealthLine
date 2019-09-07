@@ -55,7 +55,7 @@ const SideBar = () => {
                   <li className="nav-item nav-item-submenu">
                     <a href="#" className="nav-link"><i className="icon-copy" /> <span>My Reminders</span></a>
                     <ul className="nav nav-group-sub" data-submenu-title="Layouts">
-                      <li className="nav-item"><a href="index.html" className="nav-link active">Set Reminders</a></li>
+                      <li className="nav-item"><a href="index.html" className="nav-link active"><Link to="/reminder">Set Reminders</Link></a></li>
                       <li className="nav-item"><a href="http://demo.interface.club/limitless/demo/bs4/Template/layout_2/LTR/default/full/index.html" className="nav-link">Show My Reminders</a></li>
                       {/* <li className="nav-item"><a href="http://demo.interface.club/limitless/demo/bs4/Template/layout_6/LTR/default/full/index.html" className="nav-link disabled">Layout 6 <span className="badge bg-transparent align-self-center ml-auto">Coming soon</span></a></li> */}
                     </ul>
@@ -63,7 +63,7 @@ const SideBar = () => {
                   <li className="nav-item nav-item-submenu">
                     <a href="#" className="nav-link"><i className="icon-color-sampler" /> <span>My Records</span></a>
                     <ul className="nav nav-group-sub" data-submenu-title="Themes">
-                      <li className="nav-item"><a href="index.html" className="nav-link active">Create Personal Record</a></li>
+                      <li className="nav-item"><a href="index.html" className="nav-link active"><Link to="/recordform">Create Personal Record</Link></a></li>
                       <li className="nav-item"><a href="http://demo.interface.club/limitless/demo/bs4/Template/layout_1/LTR/material/full/index.html" className="nav-link">Show my Personal record</a></li>
                       <li className="nav-item"><a href="http://demo.interface.club/limitless/demo/bs4/Template/layout_1/LTR/material/full/index.html" className="nav-link">Doctor Reports</a></li>
 
