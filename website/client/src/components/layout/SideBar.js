@@ -1,56 +1,81 @@
-import React,{Fragment} from 'react'
-import { stack as Menu } from 'react-burger-menu';
-import {Link} from 'react-router-dom'
+import React, { Fragment } from "react";
+import { stack as Menu } from "react-burger-menu";
+import { Link } from "react-router-dom";
 const SideBar = () => {
   return (
-   <Fragment>
-     <div className="sidebar sidebar-dark sidebar-main sidebar-expand-md">
-            {/* Sidebar mobile toggler */}
-            <div className="sidebar-mobile-toggler text-center">
-              <a href="#" className="sidebar-mobile-main-toggle">
-                <i className="icon-arrow-left8" />
-              </a>
-              Navigation
-              <a href="#" className="sidebar-mobile-expand">
-                <i className="icon-screen-full" />
-                <i className="icon-screen-normal" />
-              </a>
-            </div>
-            {/* /sidebar mobile toggler */}
-            {/* Sidebar content */}
-            <div className="sidebar-content">
-              {/* User menu */}
-              <div className="sidebar-user">
-                <div className="card-body">
-                  <div className="media">
-                    <div className="mr-3">
-                      <a href="#"><img src=" global_assets/images/demo/users/face11.jpg" width={38} height={38} className="rounded-circle" alt="" /></a>
-                    </div>
-                    <div className="media-body">
-                      <div className="media-title font-weight-semibold">Victoria Baker</div>
-                      <div className="font-size-xs opacity-50">
-                        <i className="icon-pin font-size-sm" /> &nbsp;Santa Ana, CA
-                      </div>
-                    </div>
-                    <div className="ml-3 align-self-center">
-                      <a href="#" className="text-white"><i className="icon-cog3" /></a>
-                    </div>
+    <Fragment>
+      <div className="sidebar sidebar-dark sidebar-main sidebar-expand-md">
+        {/* Sidebar mobile toggler */}
+        <div className="sidebar-mobile-toggler text-center">
+          <a href="#" className="sidebar-mobile-main-toggle">
+            <i className="icon-arrow-left8" />
+          </a>
+          Navigation
+          <a href="#" className="sidebar-mobile-expand">
+            <i className="icon-screen-full" />
+            <i className="icon-screen-normal" />
+          </a>
+        </div>
+        {/* /sidebar mobile toggler */}
+        {/* Sidebar content */}
+        <div className="sidebar-content">
+          {/* User menu */}
+          <div className="sidebar-user">
+            <div className="card-body">
+              <div className="media">
+                <div className="mr-3">
+                  <a href="#">
+                    <img
+                      src=" global_assets/images/demo/users/face11.jpg"
+                      width={38}
+                      height={38}
+                      className="rounded-circle"
+                      alt=""
+                    />
+                  </a>
+                </div>
+                <div className="media-body">
+                  <div className="media-title font-weight-semibold">
+                    Victoria Baker
+                  </div>
+                  <div className="font-size-xs opacity-50">
+                    <i className="icon-pin font-size-sm" /> &nbsp;Santa Ana, CA
                   </div>
                 </div>
+                <div className="ml-3 align-self-center">
+                  <a href="#" className="text-white">
+                    <i className="icon-cog3" />
+                  </a>
+                </div>
               </div>
-              {/* /user menu */}
-              {/* Main navigation */}
-              <div className="card card-sidebar-mobile">
-                <ul className="nav nav-sidebar" data-nav-type="accordion">
-                  {/* Main */}
-                  <li className="nav-item-header"><div className="text-uppercase font-size-xs line-height-xs">Main</div> <i className="icon-menu" title="Main" /></li>
+            </div>
+          </div>
+          {/* /user menu */}
+          {/* Main navigation */}
+          <div className="card card-sidebar-mobile">
+            <ul className="nav nav-sidebar" data-nav-type="accordion">
+              {/* Main */}
+              <li className="nav-item-header">
+                <div className="text-uppercase font-size-xs line-height-xs">
+                  Main
+                </div>{" "}
+                <i className="icon-menu" title="Main" />
+              </li>
+              <li className="nav-item">
+                <Link to="/profile" className="nav-link active">
+                  <i className="icon-home4" />
+                  <span>My Profile</span>
+                </Link>
+              </li>
+              <li className="nav-item nav-item-submenu">
+                <a href="#" className="nav-link">
+                  <i className="icon-copy" /> <span>My Reminders</span>
+                </a>
+                <ul className="nav nav-group-sub" data-submenu-title="Layouts">
                   <li className="nav-item">
-                    <Link to="/profile" className="nav-link active">
-                      <i className="icon-home4" />
-                      <span>
-                        My Profile
-                      </span>
-                    </Link>
+                    <a href="Reminder" className="nav-link active">
+                      Set Reminders
+                    </a>
                   </li>
                   <li className="nav-item nav-item-submenu">
                     <a href="#" className="nav-link"><i className="icon-copy" /> <span>My Reminders</span></a>
@@ -71,7 +96,12 @@ const SideBar = () => {
                       {/* <li className="nav-item"><a href="http://demo.interface.club/limitless/demo/bs4/Template/layout_1/LTR/clean/full/index.html" className="nav-link disabled">Clean <span className="badge bg-transparent align-self-center ml-auto">Coming soon</span></a></li> */}
                     </ul>
                   </li>
-                  {/* <li className="nav-item nav-item-submenu">
+
+                  {/* <li className="nav-item"><a href="http://demo.interface.club/limitless/demo/bs4/Template/layout_1/LTR/dark/full/index.html" className="nav-link disabled">Dark <span className="badge bg-transparent align-self-center ml-auto">Coming soon</span></a></li> */}
+                  {/* <li className="nav-item"><a href="http://demo.interface.club/limitless/demo/bs4/Template/layout_1/LTR/clean/full/index.html" className="nav-link disabled">Clean <span className="badge bg-transparent align-self-center ml-auto">Coming soon</span></a></li> */}
+                </ul>
+              </li>
+              {/* <li className="nav-item nav-item-submenu">
                     <a href="#" className="nav-link"><i className="icon-stack" /> <span>Starter kit</span></a>
                     <ul className="nav nav-group-sub" data-submenu-title="Starter kit">
                       <li className="nav-item"><a href="http://demo.interface.club/limitless/demo/bs4/Template/layout_1/LTR/default/seed/layout_nav_horizontal.html" className="nav-link">Horizontal navigation</a></li>
@@ -106,18 +136,33 @@ const SideBar = () => {
                       <li className="nav-item"><a href="http://demo.interface.club/limitless/demo/bs4/Template/layout_1/LTR/default/seed/layout_fixed.html" className="nav-link">Fixed layout</a></li>
                     </ul>
                   </li> */}
-                  {/* <li className="nav-item">
+              {/* <li className="nav-item">
                     <a href="changelog.html" className="nav-link">
                       <i className="icon-list-unordered" />
                       <span>Changelog</span>
                       <span className="badge bg-blue-400 align-self-center ml-auto">2.2</span>
                     </a>
                   </li> */}
-                                    <li className="nav-item"><a href="http://demo.interface.club/limitless/demo/bs4/Template/layout_1/RTL/default/full/index.html" className="nav-link"><i className="icon-width" /> <span>Symptom Tracker</span></a></li>
-                  <li className="nav-item"><a href="http://demo.interface.club/limitless/demo/bs4/Template/layout_1/RTL/default/full/index.html" className="nav-link"><i className="icon-width" /> <span>Social Media Analysis</span></a></li>
-                  {/* /main */}
-                  {/* Forms */}
-                  {/* <li className="nav-item-header"><div className="text-uppercase font-size-xs line-height-xs">Forms</div> <i className="icon-menu" title="Forms" /></li>
+              <li className="nav-item">
+                <a
+                  href="http://demo.interface.club/limitless/demo/bs4/Template/layout_1/RTL/default/full/index.html"
+                  className="nav-link"
+                >
+                  <i className="icon-width" /> <span>Symptom Tracker</span>
+                </a>
+              </li>
+              <li className="nav-item">
+                <a
+                  href="http://demo.interface.club/limitless/demo/bs4/Template/layout_1/RTL/default/full/index.html"
+                  className="nav-link"
+                >
+                  <i className="icon-width" />{" "}
+                  <span>Social Media Analysis</span>
+                </a>
+              </li>
+              {/* /main */}
+              {/* Forms */}
+              {/* <li className="nav-item-header"><div className="text-uppercase font-size-xs line-height-xs">Forms</div> <i className="icon-menu" title="Forms" /></li>
                   <li className="nav-item nav-item-submenu">
                     <a href="#" className="nav-link"><i className="icon-pencil3" /> <span>Form components</span></a>
                     <ul className="nav nav-group-sub" data-submenu-title="Form components">
@@ -171,9 +216,9 @@ const SideBar = () => {
                       <li className="nav-item"><a href="form_layout_horizontal_styled.html" className="nav-link disabled">Custom styles <span className="badge bg-transparent align-self-center ml-auto">Coming soon</span></a></li>
                     </ul>
                   </li> */}
-                  {/* /forms */}
-                  {/* Components */}
-                  {/* <li className="nav-item-header"><div className="text-uppercase font-size-xs line-height-xs">Components</div> <i className="icon-menu" title="Components" /></li>
+              {/* /forms */}
+              {/* Components */}
+              {/* <li className="nav-item-header"><div className="text-uppercase font-size-xs line-height-xs">Components</div> <i className="icon-menu" title="Components" /></li>
                   <li className="nav-item nav-item-submenu">
                     <a href="#" className="nav-link"><i className="icon-grid" /> <span>Basic components</span></a>
                     <ul className="nav nav-group-sub" data-submenu-title="Basic components">
@@ -275,9 +320,9 @@ const SideBar = () => {
                       <li className="nav-item"><a href="icons_fontawesome.html" className="nav-link">Font awesome</a></li>
                     </ul>
                   </li> */}
-                  {/* /components */}
-                  {/* Layout */}
-                  {/* <li className="nav-item-header"><div className="text-uppercase font-size-xs line-height-xs">Layout</div> <i className="icon-menu" title="Layout options" /></li>
+              {/* /components */}
+              {/* Layout */}
+              {/* <li className="nav-item-header"><div className="text-uppercase font-size-xs line-height-xs">Layout</div> <i className="icon-menu" title="Layout options" /></li>
                   <li className="nav-item nav-item-submenu">
                     <a href="#" className="nav-link"><i className="icon-stack2" /> <span>Page layouts</span></a>
                     <ul className="nav nav-group-sub" data-submenu-title="Page layouts">
@@ -438,9 +483,9 @@ const SideBar = () => {
                       <li className="nav-item"><a href="#" className="nav-link"><i className="icon-chrome" /> Second level</a></li>
                     </ul>
                   </li> */}
-                  {/* /layout */}
-                  {/* Data visualization */}
-                  {/* <li className="nav-item-header"><div className="text-uppercase font-size-xs line-height-xs">Data visualization</div> <i className="icon-menu" title="Data visualization" /></li>
+              {/* /layout */}
+              {/* Data visualization */}
+              {/* <li className="nav-item-header"><div className="text-uppercase font-size-xs line-height-xs">Data visualization</div> <i className="icon-menu" title="Data visualization" /></li>
                   <li className="nav-item nav-item-submenu">
                     <a href="#" className="nav-link"><i className="icon-graph" /> <span>Echarts library</span></a>
                     <ul className="nav nav-group-sub" data-submenu-title="ECharts library">
@@ -541,9 +586,9 @@ const SideBar = () => {
                       <li className="nav-item"><a href="maps_echarts.html" className="nav-link disabled">ECharts maps <span className="badge bg-transparent align-self-center ml-auto">Coming soon</span></a></li>
                     </ul>
                 </li> */}
-                  {/*data visualization */}
-                  {/* Extensions */}
-                  {/* <li className="nav-item-header"><div className="text-uppercase font-size-xs line-height-xs">Extensions</div> <i className="icon-menu" title="Extensions" /></li>
+              {/*data visualization */}
+              {/* Extensions */}
+              {/* <li className="nav-item-header"><div className="text-uppercase font-size-xs line-height-xs">Extensions</div> <i className="icon-menu" title="Extensions" /></li>
                   <li className="nav-item nav-item-submenu">
                     <a href="#" className="nav-link"><i className="icon-puzzle4" /> <span>Extensions</span></a>
                     <ul className="nav nav-group-sub" data-submenu-title="Extensions">
@@ -588,9 +633,9 @@ const SideBar = () => {
                       <li className="nav-item"><a href="internationalization_callbacks.html" className="nav-link">Callbacks</a></li>
                     </ul>
                   </li> */}
-                  {/* /extensions */}
-                  {/* Tables */}
-                  {/* <li className="nav-item-header"><div className="text-uppercase font-size-xs line-height-xs">Tables</div> <i className="icon-menu" title="Tables" /></li>
+              {/* /extensions */}
+              {/* Tables */}
+              {/* <li className="nav-item-header"><div className="text-uppercase font-size-xs line-height-xs">Tables</div> <i className="icon-menu" title="Tables" /></li>
                   <li className="nav-item nav-item-submenu">
                     <a href="#" className="nav-link"><i className="icon-table2" /> <span>Basic tables</span></a>
                     <ul className="nav nav-group-sub" data-submenu-title="Basic tables">
@@ -656,9 +701,9 @@ const SideBar = () => {
                       <li className="nav-item"><a href="datatable_responsive.html" className="nav-link">Responsive data tables</a></li>
                     </ul>
                   </li> */}
-                  {/* /tables */}
-                  {/* Page kits */}
-                  {/* <li className="nav-item-header"><div className="text-uppercase font-size-xs line-height-xs">Page kits</div> <i className="icon-menu" title="Page kits" /></li>
+              {/* /tables */}
+              {/* Page kits */}
+              {/* <li className="nav-item-header"><div className="text-uppercase font-size-xs line-height-xs">Page kits</div> <i className="icon-menu" title="Page kits" /></li>
                   <li className="nav-item nav-item-submenu">
                     <a href="#" className="nav-link"><i className="icon-grid6" /> <span>General pages</span></a>
                     <ul className="nav nav-group-sub" data-submenu-title="General pages">
@@ -819,15 +864,15 @@ const SideBar = () => {
                       <li className="nav-item"><a href="widgets_form.html" className="nav-link disabled">Form widgets <span className="badge bg-transparent align-self-center ml-auto">Coming soon</span></a></li>
                     </ul>
                   </li> */}
-                  {/* /page kits */}
-                </ul>
-              </div>
-              {/* /main navigation */}
-            </div>
-            {/* /sidebar content */}
+              {/* /page kits */}
+            </ul>
           </div>
-   </Fragment>
-  )
-}
+          {/* /main navigation */}
+        </div>
+        {/* /sidebar content */}
+      </div>
+    </Fragment>
+  );
+};
 
-export default SideBar
+export default SideBar;

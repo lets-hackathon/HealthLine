@@ -16,27 +16,27 @@ import Profile from "./components/patient/Profile";
 import RecordForm from "./components/patient/records/RecordForm";
 import RecordRender from "./components/patient/records/RecordRender";
 import Reminder from "./components/patient/Reminder";
+import ReminderRender from "./components/patient/ReminderRender";
 import SocialPresence from "./components/patient/SocialPresence";
 import SymptomTracker from "./components/patient/SymptomTracker";
-import setAuthToken from './utils/setAuthToken';
+import setAuthToken from "./utils/setAuthToken";
 import AuthState from "./context/auth/AuthState";
 
 import "./App.css";
-if(localStorage.token){
-	setAuthToken(localStorage.token);
-  }
+if (localStorage.token) {
+  setAuthToken(localStorage.token);
+}
 
 export default function App() {
-
   return (
     <AuthState>
       {/* agar authenticated hai tabhi render navbar */}
-     
+
       {/* <div id="App"> */}
 
       {/* <div id="page-wrap"> */}
       <Router>
-      <Header />
+        <Header />
         {/* <div className="container"> */}
         <Switch>
           <Route exact path="/" component={Landing} />
@@ -50,6 +50,7 @@ export default function App() {
           <Route exact path="/misc" component={Misc} />
           {/* <Route exact path='/record' component={Record}/> */}
           <Route exact path="/reminder" component={Reminder} />
+          <Route exact path="/reminderrender" component={ReminderRender} />
           <Route exact path="/socialpresence" component={SocialPresence} />
           <Route exact path="/symptomtracker" component={SymptomTracker} />
         </Switch>
