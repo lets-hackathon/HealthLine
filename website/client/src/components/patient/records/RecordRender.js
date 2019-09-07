@@ -1,10 +1,10 @@
-import React,{Fragment} from "react";
+import React, { Fragment } from "react";
 import SideBar from "../../layout/SideBar";
 export default function RecordRender(props) {
   const { title, description, pdf } = props;
   return (
     <Fragment>
-      <div>
+      <div className="page-content">
         <SideBar />
         <div className="container">
           <div className="row">
