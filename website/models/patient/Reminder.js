@@ -1,8 +1,5 @@
 const mongoose=require('mongoose');
 const config=require('config');
-const twilioAccountSid=config.get('twilioAccountSid');
-const twilioAuthToken=config.get('twilioAuthToken');
-const twilioPhoneNumber=config.get('twilioPhoneNumber');
 const moment=require('moment');
 const Twilio = require('twilio');
 
@@ -30,15 +27,15 @@ timeZone:String,
 time:{type:Date,index:true}
 });
 ReminderSchema.methods.requiresNotification = function(dater) {
-    console.log(dater);
+    // console.log(dater);
     this.time.setDate(dater.getDate());
     this.time.setFullYear(dater.getFullYear());
     this.time.setMonth(dater.getMonth());
-    console.log(this.time);
-    console.log(Math.abs(Math.round(moment.duration(moment(this.time).tz(this.timeZone).utc()
-    .diff(moment(dater).utc())
-  ).asMinutes())));
-  console.log(this.notification);
+    // console.log(this.time);
+//     console.log(Math.abs(Math.round(moment.duration(moment(this.time).tz(this.timeZone).utc()
+//     .diff(moment(dater).utc())
+//   ).asMinutes())));
+//   console.log(this.notification);
     return Math.abs(Math.round(moment.duration(moment(this.time).tz(this.timeZone).utc()
                             .diff(moment(dater).utc())
                           ).asMinutes())) == this.notification;
@@ -54,7 +51,7 @@ ReminderSchema.methods.requiresNotification = function(dater) {
         reminders = await reminders.filter(function(reminder) {
                 return reminder.requiresNotification(searchDate);
         });
-        console.log(reminders);
+        // console.log(reminders);
         if (reminders.length > 0) {
             console.log("yippee");
           sendNotifications(reminders);
@@ -67,11 +64,11 @@ ReminderSchema.methods.requiresNotification = function(dater) {
     function sendNotifications(reminders) {
         const client = new Twilio(process.env.TWILIO_ACCOUNT_SID,process.env.TWILIO_AUTH_TOKEN);
         reminders.forEach(function(reminder) {
-            console.log(reminder.phoneNumber);
+            // console.log(reminder.phoneNumber);
             // Create options to send the message
             const options = {
                 to: "+917042108467",
-                from: twilioPhoneNumber,
+                from: process.env.TWILIO_NUMBER,
                 /* eslint-disable max-len */
                 body: ` ${reminder.message}`,
                 /* eslint-enable max-len */

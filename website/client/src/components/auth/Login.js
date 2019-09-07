@@ -21,29 +21,29 @@ const Login=(props)=>{
 		const [user,setUser]=useState({
 		
 		email:'',
-		password:''
+		password:'',
+		role:''
 	});
 	
-	const{email,password}=user;
+	const{email,password,role}=user;
 	const onChange=e=>setUser({...user,[e.target.name]:e.target.value});
 						
 	const onSubmit=e=>{
 	e.preventDefault();
-	if(email===''||password===''){
+	if(email===''||password===''||role===''){
 		// setAlert('Please fill in all fields','danger');
 	}
 	else{
 		login({
 			email,
-			password
+			password,
+			role
 		});
 	}
 
 	}
 	return (
 		<Fragment>
-
-
       {/* Page content */}
       <div className="page-content">
         {/* Main content */}
@@ -51,7 +51,7 @@ const Login=(props)=>{
           {/* Content area */}
           <div className="content d-flex justify-content-center align-items-center">
             {/* Login form */}
-            <form className="login-form" action="http://demo.interface.club/limitless/demo/bs4/Template/layout_1/LTR/default/full/index.html">
+            <form className="login-form" onSubmit={onSubmit}>
               <div className="card mb-0">
                 <div className="card-body">
                   <div className="text-center mb-3">
@@ -60,22 +60,37 @@ const Login=(props)=>{
                     <span className="d-block text-muted">Enter your credentials below</span>
                   </div>
                   <div className="form-group form-group-feedback form-group-feedback-left">
-                    <input type="text" className="form-control" placeholder="Username" />
+					<input type="text" 
+					className="form-control" 
+					placeholder="Email"
+					name="email"
+					value={email}
+					onChange={onChange} />
                     <div className="form-control-feedback">
                       <i className="icon-user text-muted" />
                     </div>
                   </div>
                   <div className="form-group form-group-feedback form-group-feedback-left">
-                    <input type="password" className="form-control" placeholder="Password" />
+					<input type="password"
+					 className="form-control"
+					  placeholder="Password"
+					  name="password"
+					  value={password}
+					  onChange={onChange} />
                     <div className="form-control-feedback">
                       <i className="icon-lock2 text-muted" />
                     </div>
                   </div>
-                  <div className="form-group">
-                    <button type="submit" className="btn btn-primary btn-block">Sign in <i className="icon-circle-right2 ml-2" /></button>
-                  </div>
+                  
                   <div className="text-center">
-                    <a href="login_password_recover.html">Forgot password?</a>
+                  </div>
+  <select style={{marginBottom:"10px"}} placeholder="Select a role" className="form-control select" name="role" value={role} onChange={onChange} >
+  <option>Select a role</option>
+            <option value="patient">Patient</option>
+            <option value="doctor">Doctor</option>
+          </select>
+		  <div className="form-group">
+                    <button type="submit" className="btn btn-primary btn-block">Sign in <i className="icon-circle-right2 ml-2" /></button>
                   </div>
                 </div>
               </div>

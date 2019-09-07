@@ -1,9 +1,9 @@
-import React from "react";
+import React,{Fragment} from "react";
 import SideBar from "../../layout/SideBar";
 export default function RecordRender(props) {
   const { title, description, pdf } = props;
   return (
-    <fragment>
+    <Fragment>
       <div>
         <SideBar />
         <div className="container">
@@ -63,6 +63,6 @@ export default function RecordRender(props) {
           </div>
         </div>
       </div>
-    </fragment>
+    </Fragment>
   );
 }

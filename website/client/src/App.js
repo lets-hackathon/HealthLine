@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Landing from "./components/Landing";
 
-import SideBar from "./components/layout/SideBar";
 import Footer from "./components/layout/Footer";
 import Header from "./components/layout/Header";
 
@@ -18,28 +18,34 @@ import RecordRender from "./components/patient/records/RecordRender";
 import Reminder from "./components/patient/Reminder";
 import SocialPresence from "./components/patient/SocialPresence";
 import SymptomTracker from "./components/patient/SymptomTracker";
-
+import setAuthToken from './utils/setAuthToken';
 import AuthState from "./context/auth/AuthState";
 
 import "./App.css";
+if(localStorage.token){
+	setAuthToken(localStorage.token);
+  }
 
 export default function App() {
+
   return (
     <AuthState>
-      <Header />
+      {/* agar authenticated hai tabhi render navbar */}
+     
       {/* <div id="App"> */}
 
       {/* <div id="page-wrap"> */}
       <Router>
+      <Header />
         {/* <div className="container"> */}
         <Switch>
-          <Route exact path="/home" component={Home} />
+          <Route exact path="/" component={Landing} />
           <Route exact path="/recordform" component={RecordForm} />
-          <Route exact path="/RecordRender" component={RecordRender} />
+          <Route exact path="/recordrender" component={RecordRender} />
 
           <Route exact path="/register" component={Register} />
           <Route exact path="/login" component={Login} />
-          <Route exact path="/" component={Profile} />
+          <Route exact path="/profile" component={Profile} />
           <Route exact path="/blog" component={Blog} />
           <Route exact path="/misc" component={Misc} />
           {/* <Route exact path='/record' component={Record}/> */}

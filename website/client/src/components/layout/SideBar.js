@@ -1,6 +1,6 @@
 import React,{Fragment} from 'react'
 import { stack as Menu } from 'react-burger-menu';
-
+import {Link} from 'react-router-dom'
 const SideBar = () => {
   return (
    <Fragment>
@@ -45,12 +45,12 @@ const SideBar = () => {
                   {/* Main */}
                   <li className="nav-item-header"><div className="text-uppercase font-size-xs line-height-xs">Main</div> <i className="icon-menu" title="Main" /></li>
                   <li className="nav-item">
-                    <a href="index.html" className="nav-link active">
+                    <Link to="/profile" className="nav-link active">
                       <i className="icon-home4" />
                       <span>
                         My Profile
                       </span>
-                    </a>
+                    </Link>
                   </li>
                   <li className="nav-item nav-item-submenu">
                     <a href="#" className="nav-link"><i className="icon-copy" /> <span>My Reminders</span></a>

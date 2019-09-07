@@ -10,9 +10,9 @@ const schedulerFactory = function() {
     start: function() {
       console.log("woah");
       new CronJob('00 * * * * *', function() {
-        console.log("mere dost");
-        console.log('Running Send Notifications Worker for ' +
-          moment().format());
+        // console.log("mere dost");
+        // console.log('Running Send Notifications Worker for ' +
+        //   moment().format());
         notificationsWorker.run();
       }, null, true, '');
     },

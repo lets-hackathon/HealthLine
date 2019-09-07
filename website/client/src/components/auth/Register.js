@@ -21,19 +21,20 @@ useEffect(() => {
   }, [error,isAuthenticated,props.history]);
 
 	const [user,setUser]=useState({
-        name:'',
         email:'',
 		password:'',
-		password2:''
-		
+		password2:'',
+		role:''
 	});
 	
-	const{name,email,password,password2}=user;
+	const{name,email,password,password2,role}=user;
 	const onChange=e=>setUser({...user,[e.target.name]:e.target.value});
 						
 	const onSubmit=e=>{
+		console.log("register called");
+
 	e.preventDefault();
-		if(name===''||email===''||password===''){
+		if(name===''||email===''||password===''||role===''){
 			// setAlert('Please enter all fields','danger');
 		}
 		else if(password!==password2){
@@ -43,7 +44,8 @@ useEffect(() => {
 			register({
                 name,
                 email,
-				password
+				password,
+				role
 			  });
 					
 		}
@@ -59,7 +61,7 @@ useEffect(() => {
 			{/* Content area */}
 			<div className="content d-flex justify-content-center align-items-center">
 			  {/* Registration form */}
-			  <form action="http://demo.interface.club/limitless/demo/bs4/Template/layout_1/LTR/default/full/index.html" className="flex-fill">
+			  <form onSubmit={onSubmit} className="flex-fill">
 				<div className="row">
 				  <div className="col-lg-6 offset-lg-3">
 					<div className="card mb-0">
@@ -70,33 +72,38 @@ useEffect(() => {
 						  <span className="d-block text-muted">All fields are required</span>
 						</div>
 						<div className="form-group form-group-feedback form-group-feedback-right">
-						  <input type="text" className="form-control" placeholder="Choose username" />
+						  <input type="text" 
+						  className="form-control" 
+						placeholder="Your Name" 
+						  value={name} 
+						  name="name"
+						  onChange={onChange}/>
 						  <div className="form-control-feedback">
 							<i className="icon-user-plus text-muted" />
 						  </div>
 						</div>
-						<div className="row">
-						  <div className="col-md-6">
-							<div className="form-group form-group-feedback form-group-feedback-right">
-							  <input type="text" className="form-control" placeholder="First name" />
-							  <div className="form-control-feedback">
-								<i className="icon-user-check text-muted" />
-							  </div>
-							</div>
-						  </div>
-						  <div className="col-md-6">
-							<div className="form-group form-group-feedback form-group-feedback-right">
-							  <input type="text" className="form-control" placeholder="Second name" />
-							  <div className="form-control-feedback">
-								<i className="icon-user-check text-muted" />
-							  </div>
-							</div>
+						<div className="form-group form-group-feedback form-group-feedback-right">
+						  <input type="email" 
+						  className="form-control" 
+						placeholder="Your Email" 
+						  value={email} 
+						  name="email"
+						  onChange={onChange}/>
+						  <div className="form-control-feedback">
+							<i className="icon-user-plus text-muted" />
 						  </div>
 						</div>
+						
 						<div className="row">
 						  <div className="col-md-6">
 							<div className="form-group form-group-feedback form-group-feedback-right">
-							  <input type="password" className="form-control" placeholder="Create password" />
+							  <input
+							   type="password" 
+							   className="form-control" 
+							   placeholder="Create password"
+							   name="password"
+							   value={password}
+							   onChange={onChange} />
 							  <div className="form-control-feedback">
 								<i className="icon-user-lock text-muted" />
 							  </div>
@@ -104,51 +111,27 @@ useEffect(() => {
 						  </div>
 						  <div className="col-md-6">
 							<div className="form-group form-group-feedback form-group-feedback-right">
-							  <input type="password" className="form-control" placeholder="Repeat password" />
+							  <input type="password"
+							   className="form-control" 
+							   placeholder="Repeat password"
+							   name="password2"
+							   value={password2}
+							   onChange={onChange} />
 							  <div className="form-control-feedback">
 								<i className="icon-user-lock text-muted" />
 							  </div>
 							</div>
 						  </div>
 						</div>
-						<div className="row">
-						  <div className="col-md-6">
-							<div className="form-group form-group-feedback form-group-feedback-right">
-							  <input type="email" className="form-control" placeholder="Your email" />
-							  <div className="form-control-feedback">
-								<i className="icon-mention text-muted" />
-							  </div>
-							</div>
-						  </div>
-						  <div className="col-md-6">
-							<div className="form-group form-group-feedback form-group-feedback-right">
-							  <input type="email" className="form-control" placeholder="Repeat email" />
-							  <div className="form-control-feedback">
-								<i className="icon-mention text-muted" />
-							  </div>
-							</div>
-						  </div>
-						</div>
-						<div className="form-group">
-						  <div className="form-check">
-							<label className="form-check-label">
-							  <input type="checkbox" className="form-input-styled" defaultChecked data-fouc />
-							  Send me <a href="#">test account settings</a>
-							</label>
-						  </div>
-						  <div className="form-check">
-							<label className="form-check-label">
-							  <input type="checkbox" className="form-input-styled" defaultChecked data-fouc />
-							  Subscribe to monthly newsletter
-							</label>
-						  </div>
-						  <div className="form-check">
-							<label className="form-check-label">
-							  <input type="checkbox" className="form-input-styled" data-fouc />
-							  Accept <a href="#">terms of service</a>
-							</label>
-						  </div>
-						</div>
+						
+						<div>
+  <label>Role</label>
+  <select style={{marginBottom:"10px"}} placeholder="Select a role" className="form-control select" name="role" value={role} onChange={onChange} >
+  <option>Select a role</option>
+            <option value="patient">Patient</option>
+            <option value="doctor">Doctor</option>
+          </select>
+</div>
 						<button type="submit" className="btn bg-teal-400 btn-labeled btn-labeled-right"><b><i className="icon-plus3" /></b> Create account</button>
 					  </div>
 					</div>
@@ -215,3 +198,23 @@ export default Register;
 // 					className="btn btn-primary btn-block"/>
 // 			</form>
 // 		</div>
+
+
+{/* <div className="row">
+						  <div className="col-md-6">
+							<div className="form-group form-group-feedback form-group-feedback-right">
+							  <input type="text" className="form-control" placeholder="First name" />
+							  <div className="form-control-feedback">
+								<i className="icon-user-check text-muted" />
+							  </div>
+							</div>
+						  </div>
+						  <div className="col-md-6">
+							<div className="form-group form-group-feedback form-group-feedback-right">
+							  <input type="text" className="form-control" placeholder="Second name" />
+							  <div className="form-control-feedback">
+								<i className="icon-user-check text-muted" />
+							  </div>
+							</div>
+						  </div>
+						</div> */}

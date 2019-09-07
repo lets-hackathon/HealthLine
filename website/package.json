@@ -6,10 +6,9 @@
   "scripts": {
     "start": "node server.js",
     "server": "nodemon server.js",
-    "scheduler": "nodemon scheduler.js",
     "client": "npm start --prefix client",
     "clientinstall": "npm install --prefix client",
-    "dev": "concurrently \"npm run server\" \"npm run client\" \"npm run scheduler\""
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "author": "kanishk",
   "license": "ISC",

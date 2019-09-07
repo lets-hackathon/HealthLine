@@ -16,7 +16,8 @@ import {
           ...state,
           isAuthenticated:true,
           loading:false,
-          user:action.payload
+          user:action.payload,
+          role:action.payload.role
         };
       case REGISTER_SUCCESS:
       case LOGIN_SUCCESS:
@@ -25,7 +26,8 @@ import {
           ...state,
           ...action.payload,
           isAuthenticated: true,
-          loading: false
+          loading: false,
+          role:action.payload.role
         };
       case REGISTER_FAIL:
       case AUTH_ERROR: 
@@ -38,7 +40,8 @@ import {
           isAuthenticated: false,
           loading: false,
           user: null,
-          error: action.payload
+          error: action.payload,
+          role:null
         };
         case CLEAR_ERRORS:
           return {

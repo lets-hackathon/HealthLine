@@ -13,6 +13,7 @@ const DoctorUser = require('../models/doctor/DoctorUser');
 // @desc      Get logged in user
 // @access    Private
 router.get('/', auth, async (req, res) => {
+  console.log("oopsie");
 
   try {
     console.log("hello frens");
@@ -28,6 +29,7 @@ router.get('/', auth, async (req, res) => {
      }
 
   } catch (err) {
+    console.log("oopsie");
     console.error(err.message);
     res.status(500).send('Server Error');
   }
