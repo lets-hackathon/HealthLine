@@ -1,7 +1,40 @@
-import React, { Fragment } from "react";
-import SideBar from "../layout/SideBar";
-
-const Reminder = () => {
+import React, { Fragment,useContext,useState} from "react";
+import TimePicker from 'react-time-picker'
+import SideBar from "../../layout/SideBar";
+import ReminderContext from '../../../context/reminder/reminderContext'
+import moment from 'moment'
+const ReminderForm = () => {
+  const reminderContext=useContext(ReminderContext);
+	
+	const{addReminder}=reminderContext;
+	const [reminder,setReminder]=useState(
+	{
+		medname:'',
+		message:'',
+		time:''		
+	});
+	
+	
+	
+	
+	
+	const{medname,message,time}=reminder;
+  const onChanger= time => setReminder({ time })
+	const onChange=e=>{
+    setReminder({...reminder,[e.target.name]:e.target.value})};
+	const onSubmit=e=>{
+		e.preventDefault();
+			addReminder(reminder);
+		
+	
+		setReminder({
+			medname:'',
+		message:'',
+		time:''			
+		});
+		
+	}
+	
   return (
     <Fragment>
       <div className="page-content">
@@ -12,7 +45,7 @@ const Reminder = () => {
               <h6 className="card-title">Set Reminder</h6>
             </div>
             <div className="card-body">
-              <form action="#">
+              <form onSubmit={onSubmit}>
                 <div className="form-group row">
                   <label className="col-form-label col-lg-2">
                     Medicine Name:
@@ -21,6 +54,9 @@ const Reminder = () => {
                     <input
                       type="text"
                       className="form-control"
+                      onChange={onChange}
+                      name="medname"
+                      value={medname}
                       placeholder="Record Title"
                     />
                   </div>
@@ -34,6 +70,9 @@ const Reminder = () => {
                       rows={3}
                       cols={3}
                       className="form-control"
+                      onChange={onChange}
+                      name="message"
+                      value={message}
                       placeholder="Record Descreption"
                       defaultValue={""}
                     />
@@ -41,13 +80,20 @@ const Reminder = () => {
                 </div>
                 <div className="form-group row">
                   <label className="col-form-label col-lg-2">Time:</label>
-                  <div className="col-lg-10">
+                  {/* <div className="col-lg-10">
                     <input
                       type="time"
+                      onChange={onChange}
+                     name="time"
+                     value={moment(time).format('MM-DD-YYYY hh:mma')}
                       className="form-control"
                       placeholder="Record Title"
                     />
-                  </div>
+                  </div> */}
+                  <TimePicker
+          onChange={onChanger}
+          value={time}
+        />
                 </div>
                 <div className="form-group row mb-0">
                   <div className="col-lg-10 ml-lg-auto">
@@ -80,4 +126,4 @@ const Reminder = () => {
   );
 };
 
-export default Reminder;
+export default ReminderForm;

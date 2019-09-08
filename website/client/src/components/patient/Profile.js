@@ -1,11 +1,13 @@
 import React,{Fragment} from 'react'
 import SideBar from '../layout/SideBar'
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 const Profile = () => {
     return (
         <Fragment>
       {/* Main content */}
       <div class="page-content">
-          <SideBar/>
+        <SideBar/>
+         
       <div className="content-wrapper">
 
         {/* Page header */}

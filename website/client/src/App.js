@@ -15,12 +15,13 @@ import Misc from "./components/patient/Misc";
 import Profile from "./components/patient/Profile";
 import RecordForm from "./components/patient/records/RecordForm";
 import RecordRender from "./components/patient/records/RecordRender";
-import Reminder from "./components/patient/Reminder";
-import ReminderRender from "./components/patient/ReminderRender";
+import ReminderForm from "./components/patient/reminders/ReminderForm";
+import ReminderRender from "./components/patient/reminders/ReminderRender";
 import SocialPresence from "./components/patient/SocialPresence";
 import SymptomTracker from "./components/patient/SymptomTracker";
 import setAuthToken from "./utils/setAuthToken";
 import AuthState from "./context/auth/AuthState";
+import ReminderState from "./context/reminder/ReminderState";
 
 import "./App.css";
 if (localStorage.token) {
@@ -29,6 +30,7 @@ if (localStorage.token) {
 
 export default function App() {
   return (
+    <ReminderState>
     <AuthState>
       {/* agar authenticated hai tabhi render navbar */}
 
@@ -49,7 +51,7 @@ export default function App() {
           <Route exact path="/blog" component={Blog} />
           <Route exact path="/misc" component={Misc} />
           {/* <Route exact path='/record' component={Record}/> */}
-          <Route exact path="/reminder" component={Reminder} />
+          <Route exact path="/reminderform" component={ReminderForm} />
           <Route exact path="/reminderrender" component={ReminderRender} />
           <Route exact path="/socialpresence" component={SocialPresence} />
           <Route exact path="/symptomtracker" component={SymptomTracker} />
@@ -60,5 +62,6 @@ export default function App() {
       {/* </div> */}
       <Footer />
     </AuthState>
+    </ReminderState>
   );
 }

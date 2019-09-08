@@ -26,31 +26,28 @@ catch(err){
 
 //POST add reminder
 //private
-router.post('/',[auth,[
-    check('medname','Medicine Name is required').not().isEmpty()
-
-]],async (req,res)=>{
-    const errors=validationResult(req);
-	if(!errors.isEmpty()){
-		return res.status(400).json({errors:errors.array() });
-	}
+router.post('/',auth,async (req,res)=>{
+    // const errors=validationResult(req);
+	// if(!errors.isEmpty()){
+	// 	return res.status(400).json({errors:errors.array() });
+	// }
 	console.log("reminder adding");
 	const patient=await PatientProfile.find({patientuser:req.user.id});
-	const {medname,message,timeZone,notification}=req.body;
-	const time=moment(req.body.time, 'MM-DD-YYYY hh:mma');
+	const {medname,message}=req.body;
+	const time=moment(req.body.time, 'hh:mma');
 	const timer=(time.toString());
 	// time.local();
 	// const timeZone=getTimeZones();
-	
+	// console.log("lolsie");
 	try{
 		const newReminder=new Reminder({
             user:req.user.id,
-            medname,
+            medname:"lodalassan",
 			message,
 			phoneNumber:patient.phone,
 			time:timer,
-			timeZone,
-			notification
+			timeZone:"Asia/Kolkata",
+			notification:"0"
 		});
 		const reminder=await newReminder.save();
 		res.json(reminder);

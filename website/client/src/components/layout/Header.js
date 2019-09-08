@@ -4,7 +4,7 @@ import AuthContext from '../../context/auth/authContext';
 
 const Header = () => {
 const authContext=useContext(AuthContext);
-const {isAuthenticated,logout,user,role}=authContext;
+const {isAuthenticated,logout,user}=authContext;
 const onLogout=()=>{
 		logout();
   }
@@ -12,18 +12,6 @@ const onLogout=()=>{
 const guestLink=(
 <Fragment>
 <div className="collapse navbar-collapse" id="navbar-mobile">
-          {/* <ul className="navbar-nav">
-            <li className="nav-item">
-              <a
-                href="#"
-                className="navbar-nav-link sidebar-control sidebar-main-toggle d-none d-md-block"
-              >
-                <i className="icon-paragraph-justify3" />
-              </a>
-            </li>
-
-          </ul> */}
-          {/* <span className="badge  bg-success ml-md-3 mr-md-auto">{user && user.role}</span> */}
 
           <ul className="navbar-nav">
             
