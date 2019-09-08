@@ -1,7 +1,7 @@
 {
-  "name": "website",
+  "name": "Healthline",
   "version": "1.0.0",
-  "description": "health related website",
+  "description": "A web portal to be used by patients and doctors",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
@@ -10,9 +10,10 @@
     "clientinstall": "npm install --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\""
   },
-  "author": "kanishk",
+  "author": "nsutHH",
   "license": "ISC",
   "dependencies": {
+    "@tensorflow/tfjs-node": "^1.2.9",
     "bcryptjs": "^2.4.3",
     "concurrently": "^4.1.2",
     "config": "^3.2.2",
