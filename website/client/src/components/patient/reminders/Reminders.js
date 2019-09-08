@@ -29,7 +29,7 @@ const Reminders=()=>{
 				</CSSTransition>
 			))
 			}
-</TransitionGroup>): <Spinner/> }
+</TransitionGroup>): <h1>loading</h1> }
 			
 	</Fragment>
 	);

@@ -13,7 +13,7 @@ from '../types';
 
 const ReminderState=props=>{
 	const initialState={
-		reminder:null,
+		reminders:null,
 		error:null		
 	};
 	const [state,dispatch]=useReducer(ReminderReducer,initialState);

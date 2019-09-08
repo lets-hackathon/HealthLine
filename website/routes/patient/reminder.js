@@ -32,7 +32,8 @@ router.post('/',auth,async (req,res)=>{
 	// 	return res.status(400).json({errors:errors.array() });
 	// }
 	console.log("reminder adding");
-	const patient=await PatientProfile.find({patientuser:req.user.id});
+	const patient=await PatientProfile.findOne({patientuser:req.user.id});
+	console.log(patient);
 	const {medname,message}=req.body;
 	const time=moment(req.body.time, 'hh:mma');
 	const timer=(time.toString());
@@ -42,7 +43,7 @@ router.post('/',auth,async (req,res)=>{
 	try{
 		const newReminder=new Reminder({
             user:req.user.id,
-            medname:"lodalassan",
+            medname,
 			message,
 			phoneNumber:patient.phone,
 			time:timer,

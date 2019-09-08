@@ -9,27 +9,29 @@ const ReminderForm = () => {
 	const{addReminder}=reminderContext;
 	const [reminder,setReminder]=useState(
 	{
-		medname:'',
-		message:'',
+	
+    message:'',
+    medname:'',
 		time:''		
 	});
-	
-	
-	
-	
-	
-	const{medname,message,time}=reminder;
+	const{message,medname,time}=reminder;
   const onChanger= time => setReminder({ time })
 	const onChange=e=>{
+    console.log(medname);
+   
     setReminder({...reminder,[e.target.name]:e.target.value})};
+
 	const onSubmit=e=>{
-		e.preventDefault();
+    e.preventDefault();
+    console.log(medname);
+    console.log(message);
+    console.log(time);
 			addReminder(reminder);
 		
 	
 		setReminder({
-			medname:'',
-		message:'',
+    message:'',
+    medname:'',
 		time:''			
 		});
 		
@@ -45,6 +47,10 @@ const ReminderForm = () => {
               <h6 className="card-title">Set Reminder</h6>
             </div>
             <div className="card-body">
+            <TimePicker
+          onChange={onChanger}
+          value={time}
+        />
               <form onSubmit={onSubmit}>
                 <div className="form-group row">
                   <label className="col-form-label col-lg-2">
@@ -90,10 +96,6 @@ const ReminderForm = () => {
                       placeholder="Record Title"
                     />
                   </div> */}
-                  <TimePicker
-          onChange={onChanger}
-          value={time}
-        />
                 </div>
                 <div className="form-group row mb-0">
                   <div className="col-lg-10 ml-lg-auto">

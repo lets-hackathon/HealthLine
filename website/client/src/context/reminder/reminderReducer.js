@@ -16,8 +16,8 @@ import {
       case ADD_REMINDER:
         return {
           ...state,
-          reminders: [action.payload, ...state.reminders],
-          loading: false
+        // reminders: [action.payload, ...state.reminders],
+        loading: false
         };
     //   case UPDATE_CONTACT:
     //     return {
