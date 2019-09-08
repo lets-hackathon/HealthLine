@@ -1,4 +1,4 @@
-#description
+# description
 
 this directory contains the code to train a model to detect emotions associated with text data, which is used for the utility social presence analysis that determines the overall mental status of a person based on their social media data.  
 the model is trained using long short term memory approach and produces an accuracy of approximately 93%.  
