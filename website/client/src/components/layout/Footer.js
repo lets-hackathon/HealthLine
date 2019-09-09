@@ -3,7 +3,7 @@ import React,{Fragment} from 'react'
 const Footer = () => {
     return (
        <Fragment>
-           <div className="navbar navbar-expand-lg navbar-light">
+           <div className="navbar navbar-expand-lg navbar-light" style={{marginBottom:"0px"}}>
               <div className="text-center d-lg-none w-100">
                 <button type="button" className="navbar-toggler dropdown-toggle" data-toggle="collapse" data-target="#navbar-footer">
                   <i className="icon-unfold mr-2" />
