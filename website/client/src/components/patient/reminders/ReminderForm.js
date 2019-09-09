@@ -1,9 +1,16 @@
-import React, { Fragment,useContext,useState} from "react";
+import React, { Fragment,useContext,useState,useEffect} from "react";
 import TimePicker from 'react-time-picker'
 import SideBar from "../../layout/SideBar";
 import ReminderContext from '../../../context/reminder/reminderContext'
-import moment from 'moment'
+import AuthContext from '../../../context/auth/authContext';
+
 const ReminderForm = () => {
+  const authContext=useContext(AuthContext);
+
+	useEffect(()=>{
+		authContext.loadUser();
+		//eslint-disable-next-line
+	},[])
   const reminderContext=useContext(ReminderContext);
 	
 	const{addReminder}=reminderContext;

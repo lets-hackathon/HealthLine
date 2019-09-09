@@ -4,12 +4,16 @@ import SideBar from "../../layout/SideBar";
 
 import ReminderContext from '../../../context/reminder/reminderContext'; 
 import ReminderRender from './ReminderRender';
+import AuthContext from '../../../context/auth/authContext';
+
 // import Spinner from '../layout/Spinner';
 const Reminders=()=>{
 	const reminderContext=useContext(ReminderContext);
 	const {reminders,getReminders,loading}=reminderContext;
-	
+	const authContext=useContext(AuthContext);
+
 	useEffect(()=>{
+		authContext.loadUser();
 		getReminders();
 		//eslint-disable-next-line
 	},[])
@@ -20,6 +24,10 @@ const Reminders=()=>{
 	}
 	return(
 	<Fragment>
+<div class="page-content">
+
+<SideBar/>
+<div className="content-wrapper">
 		{reminders!==null&&!loading ? (<TransitionGroup>
 			{
 			reminders.map( reminder=>(
@@ -30,6 +38,8 @@ const Reminders=()=>{
 			))
 			}
 </TransitionGroup>): <h1>loading</h1> }
+</div>
+</div>
 			
 	</Fragment>
 	);

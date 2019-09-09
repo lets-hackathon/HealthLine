@@ -62,7 +62,7 @@ const SideBar = () => {
                 <i className="icon-menu" title="Main" />
               </li>
               <li className="nav-item">
-                <Link to="/profile" className="nav-link active">
+                <Link to="/profile" className="nav-link">
                   <i className="icon-home4" />
                   <span>My Profile</span>
                 </Link>
@@ -71,37 +71,36 @@ const SideBar = () => {
               <li className="nav-item nav-item-submenu">
                     {/* <a href="#" className="nav-link"><i className="icon-copy" /> <span>My Reminders</span></a> */}
                     {/* <ul className="nav nav-group-sub" data-submenu-title="Layouts"> */}
-                      <li className="nav-item"><Link to="/reminderform" className="nav-link active">Set Reminders</Link></li>
-                      <li className="nav-item"><a href="http://demo.interface.club/limitless/demo/bs4/Template/layout_2/LTR/default/full/index.html" className="nav-link">Show My Reminders</a></li>
+                      <li className="nav-item"><Link to="/reminderform" className="nav-link">Set Reminders</Link></li>
+                      <li className="nav-item"><Link to="/reminder" className="nav-link">Show My Reminders</Link></li>
                       {/* <li className="nav-item"><a href="http://demo.interface.club/limitless/demo/bs4/Template/layout_6/LTR/default/full/index.html" className="nav-link disabled">Layout 6 <span className="badge bg-transparent align-self-center ml-auto">Coming soon</span></a></li> */}
                     {/* </ul> */}
                   </li>
               <li className="nav-item nav-item-submenu">
                     {/* <a href="#" className="nav-link"><i className="icon-color-sampler" /> <span>My Records</span></a> */}
                     {/* <ul className="nav nav-group-sub" data-submenu-title="Themes"> */}
-                      <li className="nav-item"><Link to="/recordform" className="nav-link active">Create Personal Record</Link></li>
-                      <li className="nav-item"><a href="http://demo.interface.club/limitless/demo/bs4/Template/layout_1/LTR/material/full/index.html" className="nav-link">Show my Personal record</a></li>
-                      <li className="nav-item"><a href="http://demo.interface.club/limitless/demo/bs4/Template/layout_1/LTR/material/full/index.html" className="nav-link">Doctor Reports</a></li>
+                      <li className="nav-item"><Link to="/recordform" className="nav-link ">Create Personal Record</Link></li>
+                      <li className="nav-item"><a href="#" className="nav-link">Show my Personal record</a></li>
+                      <li className="nav-item"><a href="#" className="nav-link">Doctor Reports</a></li>
                     {/* </ul> */}
                   </li>
               
             
               <li className="nav-item">
                 <a
-                  href="http://demo.interface.club/limitless/demo/bs4/Template/layout_1/RTL/default/full/index.html"
+                  href="#"
                   className="nav-link"
                 >
                   <i className="icon-width" /> <span>Symptom Tracker</span>
                 </a>
               </li>
               <li className="nav-item">
-                <a
-                  href="http://demo.interface.club/limitless/demo/bs4/Template/layout_1/RTL/default/full/index.html"
+                <Link to="/socialpresence"
                   className="nav-link"
                 >
                   <i className="icon-width" />{" "}
                   <span>Social Media Analysis</span>
-                </a>
+                </Link>
               </li>
               {/* /main */}
               {/* Forms */}

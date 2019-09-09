@@ -1,6 +1,14 @@
-import React, { Fragment } from "react";
+import React, { Fragment,useEffect,useContext} from "react";
 import SideBar from "../../layout/SideBar";
+import AuthContext from '../../../context/auth/authContext';
+
 const RecordForm = () => {
+  const authContext=useContext(AuthContext);
+
+	useEffect(()=>{
+		authContext.loadUser();
+		//eslint-disable-next-line
+	},[])
   return (
     <Fragment>
       {/* <h1>This is Record page</h1> */}

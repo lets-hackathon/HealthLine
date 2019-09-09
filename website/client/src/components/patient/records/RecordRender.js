@@ -1,6 +1,14 @@
-import React, { Fragment } from "react";
+import React, { Fragment,useContext,useEffect} from "react";
 import SideBar from "../../layout/SideBar";
+import AuthContext from '../../../context/auth/authContext';
+
 export default function RecordRender(props) {
+  const authContext=useContext(AuthContext);
+
+	useEffect(()=>{
+		authContext.loadUser();
+		//eslint-disable-next-line
+	},[])
   const { title, description, pdf } = props;
   return (
     <Fragment>

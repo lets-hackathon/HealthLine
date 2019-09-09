@@ -22,7 +22,7 @@ import SymptomTracker from "./components/patient/SymptomTracker";
 import setAuthToken from "./utils/setAuthToken";
 import AuthState from "./context/auth/AuthState";
 import ReminderState from "./context/reminder/ReminderState";
-
+import PrivateRoute from "./components/routing/PrivateRoute";
 import "./App.css";
 if (localStorage.token) {
   setAuthToken(localStorage.token);
@@ -42,19 +42,18 @@ export default function App() {
         {/* <div className="container"> */}
         <Switch>
           <Route exact path="/" component={Landing} />
-          <Route exact path="/recordform" component={RecordForm} />
-          <Route exact path="/recordrender" component={RecordRender} />
+          <PrivateRoute exact path="/recordform" component={RecordForm} />
+          <PrivateRoute exact path="/recordrender" component={RecordRender} />
 
           <Route exact path="/register" component={Register} />
           <Route exact path="/login" component={Login} />
-          <Route exact path="/profile" component={Profile} />
+          <PrivateRoute exact path="/profile" component={Profile} />
           <Route exact path="/blog" component={Blog} />
           <Route exact path="/misc" component={Misc} />
-          {/* <Route exact path='/record' component={Record}/> */}
-          <Route exact path="/reminderform" component={ReminderForm} />
-          <Route exact path="/reminder" component={Reminder} />
-          <Route exact path="/socialpresence" component={SocialPresence} />
-          <Route exact path="/symptomtracker" component={SymptomTracker} />
+          <PrivateRoute exact path="/reminderform" component={ReminderForm} />
+          <PrivateRoute exact path="/reminder" component={Reminder} />
+          <PrivateRoute exact path="/socialpresence" component={SocialPresence} />
+          <PrivateRoute exact path="/symptomtracker" component={SymptomTracker} />
         </Switch>
         {/* </div> */}
       </Router>

@@ -1,5 +1,8 @@
-import React from "react"
+import React,{Fragment,useContext,useEffect} from "react"
 import {Radar} from "react-chartjs-2"
+import Sidebar from '../layout/SideBar';
+import AuthContext from '../../context/auth/authContext';
+
 const radarData = {
   labels: ['surprise', 'anger', 'sad', 'fear', 'joy', 'anxiety'],
   datasets: [
@@ -34,10 +37,20 @@ const radarData = {
 }
 
 const ChartPage = (props) => {
+  const authContext=useContext(AuthContext);
 
+  useEffect(()=>{
+    authContext.loadUser();
+    //eslint-disable-next-line
+  },[]);
   return (
-    <div>
+              <div class="page-content">
+
+        <Sidebar/>
+        <div className="content-wrapper">
+
         <Radar data={radarData} />
+        </div>
     </div>
   )
 }

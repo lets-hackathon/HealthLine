@@ -1,7 +1,14 @@
-import React,{Fragment} from 'react'
+import React,{Fragment,useContext,useEffect} from 'react'
 import SideBar from '../layout/SideBar'
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import AuthContext from '../../context/auth/authContext';
 const Profile = () => {
+  const authContext=useContext(AuthContext);
+
+useEffect(()=>{
+	authContext.loadUser();
+	//eslint-disable-next-line
+},[]);
     return (
         <Fragment>
       {/* Main content */}

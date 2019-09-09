@@ -1,12 +1,16 @@
 import React, { Fragment,useContext} from "react";
-import {Link} from 'react-router-dom';
+import {Link,Redirect} from 'react-router-dom';
+
 import AuthContext from '../../context/auth/authContext';
 
 const Header = () => {
 const authContext=useContext(AuthContext);
 const {isAuthenticated,logout,user}=authContext;
 const onLogout=()=>{
-		logout();
+    logout();
+    return <Redirect to='/login' />
+
+    
   }
   
 const guestLink=(
