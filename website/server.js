@@ -3,6 +3,7 @@ const connectDB = require('./config/db');
 const path = require('path');
 const roles = require("user-groups-roles");
 const scheduler = require('./scheduler');
+
 //const runReminder = require('./config/reminder');
 const cors = require('cors');
 const app = express();
@@ -38,9 +39,10 @@ app.use('/api/users',require('./routes/users'));
 
 //app.use('/api/patient/record',require('./routes/pa'))
 
+app.use('/api/upload',require('./routes/upload.js'));
+
 //!reminder route giving error
 app.use('/api/patient/reminder',require('./routes/patient/reminder'));
-console.log("tata");
 
 app.use('/api/doctor/report',require('./routes/doctor/docreport.js'));
 

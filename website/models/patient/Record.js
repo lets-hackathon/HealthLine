@@ -5,11 +5,10 @@ const RecordSchema=mongoose.Schema({
 		type:mongoose.Schema.Types.ObjectId,
 		ref:'users'
     },
-    subjectId:{
-        type:String,
-        required:true
+    image:{
+        type:String
     },
-    link:{
+    subjectId:{
         type:String,
         required:true
     },

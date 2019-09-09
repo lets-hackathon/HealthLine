@@ -7,12 +7,6 @@ import {
 	GET_RECORDS,
 ADD_RECORD,
 DELETE_RECORD,
-SET_CURRENT,
-CLEAR_CURRENT,
-UPDATE_RECORD,
-FILTER_RECORDS,
-CLEAR_RECORDS,
-CLEAR_FILTER,
 RECORD_ERROR
 }
 from '../types';
@@ -62,24 +56,24 @@ const RecordState=props=>{
 		
 	}
 	//update contact
-const updateRecord=async record=>{
-	const config={
-		headers:{
-		'Content-Type':'application/json'
-		}
-	}
+// const updateRecord=async record=>{
+// 	const config={
+// 		headers:{
+// 		'Content-Type':'application/json'
+// 		}
+// 	}
 
-	try {
-		const res=await axios.put(`/api/patient/records/${record._id}`,record,config)
-		dispatch({type:UPDATE_RECORD,payload:res.data});
-	} catch (error) {
-		dispatch({type:RECORD_ERROR,
-		payload:error.response.msg
-		});
-	}
+// 	try {
+// 		const res=await axios.put(`/api/patient/records/${record._id}`,record,config)
+// 		dispatch({type:UPDATE_RECORD,payload:res.data});
+// 	} catch (error) {
+// 		dispatch({type:RECORD_ERROR,
+// 		payload:error.response.msg
+// 		});
+// 	}
 
 	
-}	
+// }	
     //delete contact
 	
 const deleteRecord=async id=>{
@@ -95,49 +89,41 @@ const deleteRecord=async id=>{
 	}	
 
 //clear contacts
-const clearRecords=record=>{
-	dispatch({type:CLEAR_RECORDS});
-}	
+// const clearRecords=record=>{
+// 	dispatch({type:CLEAR_RECORDS});
+// }	
 
 	//set current contact
 
-const setCurrent=record=>{
-		dispatch({type:SET_CURRENT,payload:record});
-	}	
-	// clear current contact
-const clearCurrent=()=>{
-		dispatch({type:CLEAR_CURRENT});
-	}	
+// const setCurrent=record=>{
+// 		dispatch({type:SET_CURRENT,payload:record});
+// 	}	
+// 	// clear current contact
+// const clearCurrent=()=>{
+// 		dispatch({type:CLEAR_CURRENT});
+// 	}	
 	
-	//filter contact
-const filterContacts=text=>{
-		dispatch({type:FILTER_RECORDS,payload:text});
-	}	
+// 	//filter contact
+// const filterContacts=text=>{
+// 		dispatch({type:FILTER_RECORDS,payload:text});
+// 	}	
 
-	//clear filter
-const clearFilter=()=>{
-		dispatch({type:CLEAR_FILTER});
-	}	
+// 	//clear filter
+// const clearFilter=()=>{
+// 		dispatch({type:CLEAR_FILTER});
+// 	}	
 	
 	return(
-		<ContactContext.Provider 
+		<RecordContext.Provider 
 			value={{
 				records:state.records,
-				current:state.current,
 				error:state.error,
-					filtered:state.filtered,
 					addRecord,
 					deleteRecord,
-					setCurrent,
-					clearCurrent,
-					updateRecord,
-					filterRecords,
-					clearFilter,
 					getRecords,
-					clearRecords
 			}}>
 		{props.children}
-		</ContactContext.Provider>
+		</RecordContext.Provider>
 	);
 
 };

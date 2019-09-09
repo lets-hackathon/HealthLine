@@ -31,10 +31,11 @@ router.post('/',[auth,[
 	if(!errors.isEmpty()){
 		return res.status(400).json({errors:errors.array() });
 	}
-	const {subjectId,link,description}=req.body;
+	const {subjectId,description,image}=req.body;
 	try{
 		const newRecord=new Record({
 			subjectId,
+			image,
 			link,
 			description,
 			user:req.user.id
