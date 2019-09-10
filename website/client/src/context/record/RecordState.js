@@ -20,11 +20,8 @@ const RecordState=props=>{
 	};
 	const [state,dispatch]=useReducer(RecordReducer,initialState);
 	
-	//get contacts
-
+	//get records
 	const getRecords=async ()=>{
-		
-
 		try {
 			const res=await axios.get('/api/patient/records');
 			dispatch({type:GET_RECORDS,payload:res.data});
@@ -36,8 +33,7 @@ const RecordState=props=>{
 		
 	}
 	
-	
-	//add contact
+	//add record
 	const addRecord=async record=>{
 		const config={
 			headers:{
@@ -55,25 +51,6 @@ const RecordState=props=>{
 		}
 		
 	}
-	//update contact
-// const updateRecord=async record=>{
-// 	const config={
-// 		headers:{
-// 		'Content-Type':'application/json'
-// 		}
-// 	}
-
-// 	try {
-// 		const res=await axios.put(`/api/patient/records/${record._id}`,record,config)
-// 		dispatch({type:UPDATE_RECORD,payload:res.data});
-// 	} catch (error) {
-// 		dispatch({type:RECORD_ERROR,
-// 		payload:error.response.msg
-// 		});
-// 	}
-
-	
-// }	
     //delete contact
 	
 const deleteRecord=async id=>{
@@ -84,34 +61,9 @@ const deleteRecord=async id=>{
 		dispatch({type:RECORD_ERROR,
 		payload:error.response.msg
 		});
-	}
-		
+	}	
 	}	
 
-//clear contacts
-// const clearRecords=record=>{
-// 	dispatch({type:CLEAR_RECORDS});
-// }	
-
-	//set current contact
-
-// const setCurrent=record=>{
-// 		dispatch({type:SET_CURRENT,payload:record});
-// 	}	
-// 	// clear current contact
-// const clearCurrent=()=>{
-// 		dispatch({type:CLEAR_CURRENT});
-// 	}	
-	
-// 	//filter contact
-// const filterContacts=text=>{
-// 		dispatch({type:FILTER_RECORDS,payload:text});
-// 	}	
-
-// 	//clear filter
-// const clearFilter=()=>{
-// 		dispatch({type:CLEAR_FILTER});
-// 	}	
 	
 	return(
 		<RecordContext.Provider 

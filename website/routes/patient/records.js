@@ -25,22 +25,23 @@ try{
 //@desc Add new record
 //@access Private
 router.post('/',[auth,[
-	check('link','PDF link is required').not().isEmpty()
+	check('image','PDF link is required').not().isEmpty()
 ]],async (req,res)=>{
 	const errors=validationResult(req);
 	if(!errors.isEmpty()){
 		return res.status(400).json({errors:errors.array() });
 	}
 	const {subjectId,description,image}=req.body;
+	// console.log(image);
 	try{
 		const newRecord=new Record({
 			subjectId,
 			image,
-			link,
 			description,
 			user:req.user.id
 		});
 		const record=await newRecord.save();
+		console.log("upload record successful");
 		res.json(record);
 	}
 	catch(err)

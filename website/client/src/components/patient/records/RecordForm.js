@@ -28,12 +28,13 @@ const RecordForm = () => {
 	const onChange=e=>{   
     setRecord({...record,[e.target.name]:e.target.value})};
 
-const onClickHandler = async ()=> {
+const onClickHandler = async e => {
   const data = new FormData()
   data.append('file',selectedFile)
   const res=await axios.post("http://localhost:5000/api/upload", data);
+  console.log(res.data);
   setRecord({
-    image:res
+    image:res.data
   });
 }
   const onSubmit=e=>{
@@ -58,6 +59,14 @@ const onClickHandler = async ()=> {
             </div>
 
             <div className="card-body" style={{}}>
+            <div className="form-group row">
+                  <label className="col-form-label col-lg-2">Upload Image:</label>
+                  <div className="col-lg-10">
+                    <input type="file" onChange={onChangeHandler} className="form-control-file" />
+                  </div>
+                  <button type="button" class="btn btn-success btn-block" onClick={onClickHandler}>Upload</button> 
+
+                </div>
               <form onSubmit={onSubmit}>
                 <div className="form-group row">
                   <label className="col-form-label col-lg-2">Title:</label>
@@ -71,15 +80,6 @@ const onClickHandler = async ()=> {
                       placeholder="Record Title"
                     />
                   </div>
-                </div>
-              
-                <div className="form-group row">
-                  <label className="col-form-label col-lg-2">Upload Image:</label>
-                  <div className="col-lg-10">
-                    <input type="file" onChange={onChangeHandler} className="form-control-file" />
-                  </div>
-                  <button type="button" class="btn btn-success btn-block" onClick={onClickHandler}>Upload</button> 
-
                 </div>
                 <div className="form-group row">
                   <label className="col-form-label col-lg-2">
