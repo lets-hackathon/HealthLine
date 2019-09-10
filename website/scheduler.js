@@ -3,12 +3,11 @@
 const CronJob = require('cron').CronJob;
 const notificationsWorker = require('./workers/notificationsWorker');
 const moment = require('moment');
-console.log("chai peelo");
+console.log("scheduler js online");
 const schedulerFactory = function() {
-  console.log("oho");
   return {
     start: function() {
-      console.log("woah");
+      console.log("starter function working");
       new CronJob('00 * * * * *', function() {
         // console.log("mere dost");
         // console.log('Running Send Notifications Worker for ' +

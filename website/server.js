@@ -3,6 +3,7 @@ const connectDB = require('./config/db');
 const path = require('path');
 const roles = require("user-groups-roles");
 const scheduler = require('./scheduler');
+const fileupload=require("express-fileupload");
 
 //const runReminder = require('./config/reminder');
 const cors = require('cors');
@@ -18,7 +19,7 @@ const Reminder = require('./models/patient/Reminder');
 //Init middleware
 app.use(express.json({extended:false}));
 app.use(cors()); //for cross origin requests
-
+app.use(fileupload());
 
 //define routes
 roles.createNewRole("patient");

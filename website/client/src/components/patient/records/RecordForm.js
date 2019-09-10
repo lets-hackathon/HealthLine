@@ -18,7 +18,7 @@ const RecordForm = () => {
     description:'',
     selectedFile:null
   });
-  const {image,subjectId,description,selectedFile}=record;
+  const {subjectId,description,selectedFile,image}=record;
   
  const onChangeHandler=event=>{
     setRecord({
