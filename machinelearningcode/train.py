@@ -1,4 +1,5 @@
 import re
+import json
 import keras
 import numpy as np
 import pandas as pd
@@ -10,7 +11,7 @@ from keras.preprocessing.sequence import pad_sequences
 df = pd.read_csv('./data/emotions.data')
 #df.head() #to examine dataframe
 
-#create vocabulary and give them unique id
+#create vocabulary and encode them into numbers
 word2id = {}
 label2id = {}
 max_words = 0
@@ -25,12 +26,20 @@ for sent in data_sent:
             
     if len(sent) > max_words:
         max_words = len(sent)
-        
+
+#converting list to set jumbles the labels this caused the initial problem...        
 label2id = {l: i for i, l in enumerate(set(labels))}
 id2label = {i: l for l, i in label2id.items()}
 
 #print(id2label)
 #print(label2id)
+
+#these save our vocabulary to use later with tensorflowjs model
+with open('word2id.json', 'w') as f1:
+    json.dump(word2id, f1)
+
+with open('label2id.json', 'w') as f2:
+    json.dump(label2id, f2)
 
 #create input-output list
 
@@ -80,7 +89,7 @@ print(x_test.shape, y_test.shape)
 history = model.fit(X, Y, epochs=5, batch_size = 128, validation_data = (x_test, y_test), shuffle=True, verbose=1)
 
 # This saves the model
-model.save('./model/lstm.h5')
+model.save('./model/LSTM.h5')
 #with open('.json', 'w') as f:
 #    f.write(model.to__json())
 
