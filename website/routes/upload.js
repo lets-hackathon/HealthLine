@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+//config for cloudinary
 var cloudinary = require('cloudinary');
 cloudinary.config({ 
   cloud_name: 'kanishkpersonalcloud', 
@@ -13,17 +14,17 @@ router.post('/',(req,res)=>{
   }
 
   const file=req.files.file;
+  //express fileupload creating a path for storage
   file.mv(`${__dirname}/../client/public/uploads/${file.name}`,err=>{
       if(err){
           console.error(err);
           return res.status(500).send(err);
       }
-      // res.json({fileName:file.name,filePath:`/uploads/${file.name}`});
-
+      //cloudinary storing image into database and prociding url
       cloudinary.uploader.upload(`${__dirname}/../client/public/uploads/${file.name}`, function(result) {
-        // add cloudinary url for the image to the campground object under image property
+        // add cloudinary url for the image to Recordform
         var image = result.secure_url;
-        console.log("done");
+        console.log("image uploaded to cloudinary");
         console.log(image);       
         res.json(image);    
       });

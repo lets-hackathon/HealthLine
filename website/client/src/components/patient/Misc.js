@@ -5,7 +5,7 @@ const Misc = () => {
         <Fragment>
             <h1>This is Misc page</h1>
 
-            {/* random shiz*/}
+            {/* random stuff*/}
 
             
         </Fragment>

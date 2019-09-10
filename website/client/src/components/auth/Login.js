@@ -1,6 +1,5 @@
 import React,{useState,useContext,useEffect,Fragment} from 'react';
 import AuthContext from '../../context/auth/authContext';
-// import AlertContext from '../../context/alert/alertContext';
 
 const Login=(props)=>{
 	// const alertContext=useContext(AlertContext);
@@ -110,28 +109,3 @@ const Login=(props)=>{
 
 export default Login;
 
-{/* <div className="form-container">
-<h1>
-Account <span className="text-primary">Login</span>	
-	</h1>
-	
-	<form onSubmit={onSubmit}>
-
-	<div className="form-group" >
-		<label htmlForm="email">Email Address</label>
-<input type="email" name="email" value={email} onChange={onChange}/>
-		
-		</div>
-<div className="form-group" >
-		<label htmlForm="password">Password</label>
-<input type="password" 
-	name="password" 
-	value={password} 
-	onChange={onChange}/>
-		
-		</div>
-
-		<input type="submit" value="Login" 
-			className="btn btn-primary btn-block"/>
-	</form>
-</div> */}

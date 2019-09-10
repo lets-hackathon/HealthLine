@@ -25,14 +25,13 @@ try{
 //@desc Add new record
 //@access Private
 router.post('/',[auth,[
-	check('image','PDF link is required').not().isEmpty()
+	check('image','image link is required').not().isEmpty()
 ]],async (req,res)=>{
 	const errors=validationResult(req);
 	if(!errors.isEmpty()){
 		return res.status(400).json({errors:errors.array() });
 	}
 	const {subjectId,description,image}=req.body;
-	// console.log(image);
 	try{
 		const newRecord=new Record({
 			subjectId,
@@ -52,13 +51,13 @@ router.post('/',[auth,[
 });
 
 
-//@route PUT api/contacts/:id
+//@route PUT api/records/:id
 //@desc Update
 //@access Private
 router.put('/:id',auth,async (req,res)=>{
 	const {link,subjectId,description}=req.body;
 	
-	//build a contact 
+	//build a record
 	const recordFields={};
 	if(link) recordFields.link=link;
 	if(subjectId) recordFields.subjectId=subjectId;
@@ -66,7 +65,7 @@ router.put('/:id',auth,async (req,res)=>{
 	try{
 		let record=await Record.findById(req.params.id);
 		if(!record) return res.status(404).json({msg:'Record not found'});
-		//make sure user owns contact
+		//make sure user owns record
 		if(record.user.toString()!==req.user.id){
 			return res.status(401).json({msg:'Not authorized'});
 		}
@@ -81,14 +80,14 @@ router.put('/:id',auth,async (req,res)=>{
 	res.status(500).send('Server Error');
 	}
 });
-//@route PUT api/contacts/:id
+//@route PUT api/records/:id
 //@desc Update
 //@access Private
 router.delete('/:id',auth,async (req,res)=>{
 try{
 		let record=await Record.findById(req.params.id);
 		if(!record) return res.status(404).json({msg:'Record not found'});	
-	//make sure user owns contact
+	//make sure user owns record
 	if(record.user.toString()!==req.user.id){
 			return res.status(401).json({msg:'Not authorized'});
 		}

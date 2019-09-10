@@ -6,10 +6,11 @@ const auth=require('../../middleware/auth');
 const { check, validationResult } = require('express-validator/check');
 const PatientProfile=require("../../models/patient/PatientProfile");
 const Reminder=require('../../models/patient/Reminder');
-
+//get timezone from where reminder is being created
 const getTimeZones = function() {
 	return momentTimeZone.tz.names();
   };
+
 //get reminder from /api/reminder
 //private
 router.get('/',auth,async (req,res)=>{
@@ -27,10 +28,7 @@ catch(err){
 //POST add reminder
 //private
 router.post('/',auth,async (req,res)=>{
-    // const errors=validationResult(req);
-	// if(!errors.isEmpty()){
-	// 	return res.status(400).json({errors:errors.array() });
-	// }
+   
 	console.log("reminder adding");
 	const patient=await PatientProfile.findOne({patientuser:req.user.id});
 	console.log(patient);
@@ -39,7 +37,6 @@ router.post('/',auth,async (req,res)=>{
 	const timer=(time.toString());
 	// time.local();
 	// const timeZone=getTimeZones();
-	// console.log("lolsie");
 	try{
 		const newReminder=new Reminder({
             user:req.user.id,

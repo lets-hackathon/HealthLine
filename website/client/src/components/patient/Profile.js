@@ -137,110 +137,7 @@ useEffect(()=>{
                     </form>
                   </div>
                 </div>
-                {/* /profile info */}
-                {/* Account settings */}
-                {/* <div className="card">
-                  <div className="card-header header-elements-inline">
-                    <h5 className="card-title">Account settings</h5>
-                    <div className="header-elements">
-                      <div className="list-icons">
-                        <a className="list-icons-item" data-action="collapse" />
-                        <a className="list-icons-item" data-action="reload" />
-                        <a className="list-icons-item" data-action="remove" />
-                      </div>
-                    </div>
-                  </div>
-                  <div className="card-body">
-                    <form action="#">
-                      <div className="form-group">
-                        <div className="row">
-                          <div className="col-md-6">
-                            <label>Username</label>
-                            <input type="text" defaultValue="Kopyov" readOnly="readonly" className="form-control" />
-                          </div>
-                          <div className="col-md-6">
-                            <label>Current password</label>
-                            <input type="password" defaultValue="password" readOnly="readonly" className="form-control" />
-                          </div>
-                        </div>
-                      </div>
-                      <div className="form-group">
-                        <div className="row">
-                          <div className="col-md-6">
-                            <label>New password</label>
-                            <input type="password" placeholder="Enter new password" className="form-control" />
-                          </div>
-                          <div className="col-md-6">
-                            <label>Repeat password</label>
-                            <input type="password" placeholder="Repeat new password" className="form-control" />
-                          </div>
-                        </div>
-                      </div>
-                      <div className="form-group">
-                        <div className="row">
-                          <div className="col-md-6">
-                            <label>Profile visibility</label>
-                            <div className="form-check">
-                              <label className="form-check-label">
-                                <input type="radio" name="visibility" className="form-input-styled" defaultChecked data-fouc />
-                                Visible to everyone
-                              </label>
-                            </div>
-                            <div className="form-check">
-                              <label className="form-check-label">
-                                <input type="radio" name="visibility" className="form-input-styled" data-fouc />
-                                Visible to friends only
-                              </label>
-                            </div>
-                            <div className="form-check">
-                              <label className="form-check-label">
-                                <input type="radio" name="visibility" className="form-input-styled" data-fouc />
-                                Visible to my connections only
-                              </label>
-                            </div>
-                            <div className="form-check">
-                              <label className="form-check-label">
-                                <input type="radio" name="visibility" className="form-input-styled" data-fouc />
-                                Visible to my colleagues only
-                              </label>
-                            </div>
-                          </div>
-                          <div className="col-md-6">
-                            <label>Notifications</label>
-                            <div className="form-check">
-                              <label className="form-check-label">
-                                <input type="checkbox" className="form-input-styled" defaultChecked data-fouc />
-                                Password expiration notification
-                              </label>
-                            </div>
-                            <div className="form-check">
-                              <label className="form-check-label">
-                                <input type="checkbox" className="form-input-styled" defaultChecked data-fouc />
-                                New message notification
-                              </label>
-                            </div>
-                            <div className="form-check">
-                              <label className="form-check-label">
-                                <input type="checkbox" className="form-input-styled" defaultChecked data-fouc />
-                                New task notification
-                              </label>
-                            </div>
-                            <div className="form-check">
-                              <label className="form-check-label">
-                                <input type="checkbox" className="form-input-styled" />
-                                New contact request notification
-                              </label>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="text-right">
-                        <button type="submit" className="btn btn-primary">Save changes</button>
-                      </div>
-                    </form>
-                  </div>
-                </div> */}
-                {/* /account settings */}
+             
               </div>
             {/* /left content */}
             {/* Right sidebar component */}
@@ -326,33 +223,7 @@ useEffect(()=>{
                     </ul>
                   </div>
                 </div>
-                {/* /navigation */}
-                {/* Share your thoughts */}
-                {/* <div className="card">
-                  <div className="card-header bg-transparent header-elements-inline">
-                    <span className="card-title font-weight-semibold">Share your thoughts</span>
-                    <div className="header-elements">
-                      <div className="list-icons">
-                        <a className="list-icons-item" data-action="collapse" />
-                      </div>
-                    </div>
-                  </div>
-                  <div className="card-body">
-                    <form action="#">
-                      <textarea name="enter-message" className="form-control mb-3" rows={3} cols={1} placeholder="Enter your message..." defaultValue={""} />
-                      <div className="d-flex align-items-center">
-                        <div className="list-icons list-icons-extended">
-                          <a href="#" className="list-icons-item" data-popup="tooltip" title="Add photo" data-container="body"><i className="icon-images2" /></a>
-                          <a href="#" className="list-icons-item" data-popup="tooltip" title="Add video" data-container="body"><i className="icon-film2" /></a>
-                          <a href="#" className="list-icons-item" data-popup="tooltip" title="Add event" data-container="body"><i className="icon-calendar2" /></a>
-                        </div>
-                        <button type="button" className="btn bg-blue btn-labeled btn-labeled-right ml-auto"><b><i className="icon-paperplane" /></b> Share</button>
-                      </div>
-                    </form>
-                  </div>
-                </div> */}
-               
-                {/* /latest connections */}
+              
               </div>
               {/* /sidebar content */}
             </div>

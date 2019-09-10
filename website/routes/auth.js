@@ -17,7 +17,6 @@ router.get('/', auth, async (req, res) => {
 
   try {
     console.log("hello frens");
-   
     console.log(req.user.id);
       const patientUser = await PatientUser.findById(req.user.id).select('-password');  
       const doctorUser = await DoctorUser.findById(req.user.id).select('-password');

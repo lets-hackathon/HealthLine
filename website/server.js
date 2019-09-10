@@ -4,53 +4,33 @@ const path = require('path');
 const roles = require("user-groups-roles");
 const scheduler = require('./scheduler');
 const fileupload=require("express-fileupload");
-
-//const runReminder = require('./config/reminder');
 const cors = require('cors');
 const app = express();
 
 //connect database
 connectDB();
 
-//run reminder
-//runReminder();
-const Reminder = require('./models/patient/Reminder');
-
 //Init middleware
 app.use(express.json({extended:false}));
 app.use(cors()); //for cross origin requests
-app.use(fileupload());
+app.use(fileupload());//for express-fileupload
 
-//define routes
+//define roles
 roles.createNewRole("patient");
 roles.createNewRole("doctor");
 
-
-//auth checked
+//auth routes
 app.use('/api/auth',require('./routes/auth'));
-
-//profile checked
-app.use('/api/patient/profile',require('./routes/patient/profile'));
-
-//records checked
-app.use('/api/patient/records',require('./routes/patient/records'));
-
-//users checked
 app.use('/api/users',require('./routes/users'));
 
-//app.use('/api/patient/record',require('./routes/pa'))
-
+//patient routes
+app.use('/api/patient/profile',require('./routes/patient/profile'));
 app.use('/api/upload',require('./routes/upload.js'));
-
-//!reminder route giving error
+app.use('/api/patient/records',require('./routes/patient/records'));
 app.use('/api/patient/reminder',require('./routes/patient/reminder'));
 
+//doctor routes
 app.use('/api/doctor/report',require('./routes/doctor/docreport.js'));
-
-
-
-//interval
-
 
 // serve static routes in production
 if(process.env.NODE_ENV === 'production'){
@@ -63,4 +43,5 @@ const PORT = process.env.PORT||5000;
 app.listen(PORT,() => {
 	console.log("server is listening");
 })
+//the function that runs cron job for reminders app
 scheduler.start();

@@ -74,16 +74,12 @@ ReminderSchema.methods.requiresNotification = function(dater) {
                 /* eslint-enable max-len */
             };
 
-            // Send the message!
+            // Send the message
             client.messages.create(options, function(err, response) {
                 if (err) {
                     // Just log it for now
                     console.error(err);
                 } else {
-                    // Log the last few digits of a phone number
-                    // let masked = reminder.phoneNumber.substr(0,
-                    //     reminder.phoneNumber.length - 5);
-                    // masked += '*****' ${masked};
                     console.log(`Message sent to me`);
                 }
             });

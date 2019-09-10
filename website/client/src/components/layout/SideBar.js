@@ -73,7 +73,6 @@ const SideBar = () => {
                     {/* <ul className="nav nav-group-sub" data-submenu-title="Layouts"> */}
                       <li className="nav-item"><Link to="/reminderform" className="nav-link">Set Reminders</Link></li>
                       <li className="nav-item"><Link to="/reminder" className="nav-link">Show My Reminders</Link></li>
-                      {/* <li className="nav-item"><a href="http://demo.interface.club/limitless/demo/bs4/Template/layout_6/LTR/default/full/index.html" className="nav-link disabled">Layout 6 <span className="badge bg-transparent align-self-center ml-auto">Coming soon</span></a></li> */}
                     {/* </ul> */}
                   </li>
               <li className="nav-item nav-item-submenu">

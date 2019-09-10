@@ -7,6 +7,7 @@ const { check, validationResult } = require('express-validator/check');
 
 const PatientUser = require('../models/patient/PatientUser');
 const DoctorUser =require('../models/doctor/DoctorUser');
+
 // @route     POST api/users
 // @desc      Regiter a user
 // @access    Public
@@ -31,6 +32,7 @@ router.post('/',
     
       try {
       let user;
+      //register into patient 
         if(role=="patient"){
            user = await PatientUser.findOne({ email });
   
@@ -45,6 +47,7 @@ router.post('/',
             role
           });
         }else if(role=="doctor"){
+          //register into doctor
            user = await DoctorUser.findOne({ email });
   
           if (user) {
