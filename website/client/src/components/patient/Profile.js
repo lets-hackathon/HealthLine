@@ -61,7 +61,7 @@ useEffect(()=>{
                       <div className="form-group">
                         <div className="row">
                           <div className="col-md-6">
-                            <label>Username</label>
+                            <label>RecordId</label>
                             <input type="text" defaultValue="Eugene" className="form-control" />
                           </div>
                           <div className="col-md-6">
@@ -72,49 +72,21 @@ useEffect(()=>{
                       </div>
                       <div className="form-group">
                         <div className="row">
-                          <div className="col-md-6">
-                            <label>Address line 1</label>
+                          <div className="col-md-12">
+                            <label>Address</label>
                             <input type="text" defaultValue="Ring street 12" className="form-control" />
                           </div>
-                          <div className="col-md-6">
-                            <label>Address line 2</label>
-                            <input type="text" defaultValue="building D, flat #67" className="form-control" />
-                          </div>
+                        
                         </div>
                       </div>
+              
                       <div className="form-group">
                         <div className="row">
-                          <div className="col-md-4">
-                            <label>City</label>
-                            <input type="text" defaultValue="Munich" className="form-control" />
-                          </div>
-                          <div className="col-md-4">
-                            <label>State/Province</label>
-                            <input type="text" defaultValue="Bayern" className="form-control" />
-                          </div>
-                          <div className="col-md-4">
-                            <label>ZIP code</label>
-                            <input type="text" defaultValue={1031} className="form-control" />
-                          </div>
-                        </div>
-                      </div>
-                      <div className="form-group">
-                        <div className="row">
-                          <div className="col-md-6">
+                          <div className="col-md-12">
                             <label>Email</label>
                             <input type="text" readOnly="readonly" defaultValue="eugene@kopyov.com" className="form-control" />
                           </div>
-                          <div className="col-md-6">
-                            <label>Your country</label>
-                            <select className="form-control form-control-select2" data-fouc>
-                              <option value="germany" selected>Germany</option> 
-                              <option value="france">France</option> 
-                              <option value="spain">Spain</option> 
-                              <option value="netherlands">Netherlands</option> 
-                              <option value="other">...</option> 
-                              <option value="uk">United Kingdom</option> 
-                            </select>
-                          </div>
+                        
                         </div>
                       </div>
                       <div className="form-group">
@@ -126,9 +98,24 @@ useEffect(()=>{
                           </div>
                           <div className="col-md-6">
                             <label>Upload profile image</label>
-                            <input type="file" className="form-input-styled" data-fouc />
+                            <input type="file" className="form-input-styled"  />
                             <span className="form-text text-muted">Accepted formats: gif, png, jpg. Max file size 2Mb</span>
                           </div>
+                        </div>
+                      </div>
+                      <div className="form-group">
+                        <div className="row">
+                          <div className="col-md-6">
+                            <label>Phone #</label>
+                            <input type="text" defaultValue="+99-99-9999-9999" className="form-control" />
+                            <span className="form-text text-muted">+99-99-9999-9999</span>
+                          </div>
+                          <div className="col-md-6">
+                            <label>Emergency Phone #</label>
+                            <input type="text" defaultValue="+99-99-9999-9999" className="form-control" />
+                            <span className="form-text text-muted">+99-99-9999-9999</span>
+                          </div>
+                         
                         </div>
                       </div>
                       <div className="text-right">

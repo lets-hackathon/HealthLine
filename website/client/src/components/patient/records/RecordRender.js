@@ -9,7 +9,7 @@ export default function RecordRender(props) {
 		authContext.loadUser();
 		//eslint-disable-next-line
 	},[])
-  const { title, description, pdf } = props;
+  const { title, description } = props;
   return (
     <Fragment>
       <div className="page-content">

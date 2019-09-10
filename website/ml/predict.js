@@ -3,11 +3,13 @@ const tf = require('@tensorflow/tfjs');
 const label2id = require('./tfjs-model/label2id.json')
 const word2id = require('./tfjs-model/word2id.json')
 
-
 //load the model, need to host the model.json file and access via http
+// app.use(express.static(__dirname+"/tfjs-model"));
+
 let model;
-async function predict() {
-  model = await tf.loadLayersModel('http://127.0.0.1:3000/model.json'); //npm http-server /path/to/tfjs-model -p 3000 find a way to host using express.static function
+async function predict(req,res) {
+  console.log("before model loads");
+  model = await tf.loadLayersModel('http://127.0.0.1:3001/model.json'); //npm http-server /path/to/tfjs-model -p 3000 find a way to host using express.static function
 console.log("model loaded successfully.");
 
 //processing
@@ -25,7 +27,21 @@ console.log("model loaded successfully.");
   encoded_samples = tf.tensor1d(encoded_samples);
   encoded_samples = encoded_samples.pad([[178 - encoded_samples.size,0]]);
   encoded_samples = encoded_samples.reshape([1, 178]);
-  label_probs = model.predict(encoded_samples).print(); //replace this and send it to chartjs
+  const label_probs = model.predict(encoded_samples); //replace this and send it to chartjs
+  const values = label_probs.as1D().dataSync();
+const arr = Array.from(values);
+let labels = {
+  surprise: arr[1],
+  anger: arr[0],
+  love: arr[3],
+  joy: arr[2],
+  sadness: arr[4],
+  fear: arr[5]
+};
+console.log("hello");
+console.log(labels);
+return labels;
 }  
 
-predict();
+module.exports=predict;
+// predict();
