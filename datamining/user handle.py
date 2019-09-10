@@ -6,10 +6,10 @@ import json
 import time
 from random import randint, random
 
-api_key = 'WjvzIonn29yvxAPiczWxlAp4o'
-secret_key = '623fyXRlv9Q3AiXt6X1XPaZaBiQmrHW3Ouhk7Bj9GXO9Q0BFqz'
-access_token = '1166779488589320192-pXU4YKufJQfSQQcasBDvHk4PiAKgoo'
-secret_token = 'K8RAAt9NNwGKGCngThMI4eiIeb3hsRsEfleZ2vsKw7naC'
+api_key = 'XXXXXXXXXXXXXXXXXXXXXXXXXXX'
+secret_key = 'XXXXXXXXXXXXXXXXXXXXXXXXXXX'
+access_token = 'XXXXXXXXXXXXXXXXXXXXXXXXXXX'
+secret_token = 'XXXXXXXXXXXXXXXXXXXXXXXXXXX'
 
 def authenticate(api_key, secret_key, access_token, secret_token):
 
