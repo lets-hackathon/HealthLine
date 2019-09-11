@@ -20,7 +20,7 @@ useEffect(()=>{
 	</div>		
 	<div>
 	<SelectedSymptoms/>
-    <button onCLick={onClick}>Get analysis!</button>
+    {/* <button onCLick={onClick}>Get analysis!</button> */}
 	</div>
 			
 	</div>
