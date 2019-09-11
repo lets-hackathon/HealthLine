@@ -18,7 +18,7 @@ import RecordRender from "./components/patient/records/RecordRender";
 import ReminderForm from "./components/patient/reminders/ReminderForm";
 import Reminder from "./components/patient/reminders/Reminders";
 import SocialPresence from "./components/patient/SocialPresence";
-import SymptomTracker from "./components/patient/SymptomTracker";
+import SymptomRender from "./components/patient/symptoms/SymptomRender";
 import setAuthToken from "./utils/setAuthToken";
 import AuthState from "./context/auth/AuthState";
 import ReminderState from "./context/reminder/ReminderState";
@@ -56,7 +56,7 @@ export default function App() {
           <PrivateRoute exact path="/reminderform" component={ReminderForm} />
           <PrivateRoute exact path="/reminder" component={Reminder} />
           <PrivateRoute exact path="/socialpresence" component={SocialPresence} />
-          <PrivateRoute exact path="/symptomtracker" component={SymptomTracker} />
+          <PrivateRoute exact path="/symptomrender" component={SymptomRender} />
         </Switch>
         {/* </div> */}
       </Router>
