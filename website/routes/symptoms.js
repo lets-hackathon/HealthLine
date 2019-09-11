@@ -1,18 +1,15 @@
 const express=require("express");
 const router=express.Router();
 const Symptom=require('../models/Symptom.js');
-router.post('/',async (req,res)=>{
-const {name}=req.body;
-try{
-    const newSymptom=new Symptom({
-        name
+router.get('/',async (req,res)=>{
+    try{
+        const symptoms=await Symptom.find();
+        res.json(symptoms);
+    
+    } catch(err){
+        console.error(err.message);
+        res.status(500).send('Server Error');
+    }
+    
     });
-    const symptom=await newSymptom.save();
-    res.json(symptom);
-}
-catch(err)
-{
-    console.error(err.message);
-    res.status(500).send('Server Error');
-}
-});
+module.exports=router;

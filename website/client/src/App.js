@@ -23,7 +23,7 @@ import setAuthToken from "./utils/setAuthToken";
 import AuthState from "./context/auth/AuthState";
 import ReminderState from "./context/reminder/ReminderState";
 import RecordState from "./context/record/RecordState";
-
+import SymptomState from "./context/symptom/SymptomState";
 import PrivateRoute from "./components/routing/PrivateRoute";
 import "./App.css";
 if (localStorage.token) {
@@ -32,6 +32,7 @@ if (localStorage.token) {
 
 export default function App() {
   return (
+    <SymptomState>
     <RecordState>
     <ReminderState>
     <AuthState>
@@ -66,5 +67,6 @@ export default function App() {
     </AuthState>
     </ReminderState>
     </RecordState>
+    </SymptomState>
   );
 }

@@ -7,7 +7,8 @@ import {
   SYMPTOM_ERROR,
   CLEAR_CONTACTS,
   ADD_SELECT,
-  DELETE_SELECT
+  DELETE_SELECT,
+  GET_SELECTEDSYMPTOMS
 } from '../types';
 
 export default (state, action) => {
@@ -16,6 +17,12 @@ export default (state, action) => {
       return {
         ...state,
         symptoms: action.payload,
+        loading: false
+      };
+      case GET_SELECTEDSYMPTOMS:
+      return {
+        ...state,
+        selectedsymptoms: action.payload,
         loading: false
       };
 
@@ -38,7 +45,7 @@ export default (state, action) => {
           ...state,
         filtered: state.symptoms.filter(symptom => {
         const regex = new RegExp(`${action.payload}`, 'gi');
-            return (symptom.name.match(regex) || symptom.email.match(regex));              
+            return (symptom.name.match(regex));              
   })      
   };
     

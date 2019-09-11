@@ -9,7 +9,7 @@ const Landing = () => {
           style={{ width: "100%", opacity: "0.75" }}
           alt=""
         />
-        <div className="carousel-caption">
+        <div className="carousel-caption" style={{paddingBottom:"700px"}}>
           <h1 className="display-1">HealthLine</h1>
           <h3>Your Smart Health Assistant</h3>
           <button type="button" className="btn btn-outline-light btn-lg">

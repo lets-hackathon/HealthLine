@@ -5,7 +5,7 @@ const SelectedSymptomItem=({selectedsymptom})=>{
 	const symptomContext=useContext(SymptomContext);
 	const{deleteSelectedSymptom}=symptomContext;
 
-	const {_id,name,email,phone,type}=selectedsymptom;
+	const {name,_id}=selectedsymptom;
 	
 	return(
 	
@@ -16,7 +16,7 @@ const SelectedSymptomItem=({selectedsymptom})=>{
 	<p>
 			<button 
 				className="btn btn-dark btn-sm"
-				onClick={()=>deleteSelectedSymptom(selectedsymptom)} >Delete Symptom</button>
+				onClick={()=>deleteSelectedSymptom(_id)} >Delete Symptom</button>
 		    {/* <button className="btn btn-danger btn-sm" onClick={onDelete}>Delete</button> */}
 
 			</p>

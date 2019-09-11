@@ -5,8 +5,11 @@ import SelectedSymptomItem from "./SelectedSymptomItem";
 // import Spinner from '../layout/Spinner';
 const SelectedSymptoms = () => {
   const symptomContext = useContext(SymptomContext);
-  const { selectedsymptoms, loading } = symptomContext;
-
+  const { selectedsymptoms,getSelectedSymptoms,loading } = symptomContext;
+  useEffect(()=>{
+		getSelectedSymptoms();
+		//eslint-disable-next-line
+	},[])
   return (
     <Fragment>
       {!loading ? (
@@ -27,6 +30,7 @@ const SelectedSymptoms = () => {
         </TransitionGroup>
       ) : (
         // <Spinner />
+        <h1>Loading</h1>
       )}
     </Fragment>
   );

@@ -11,7 +11,9 @@ FILTER_SYMPTOMS,
 CLEAR_CONTACTS,
 CLEAR_FILTER,
 SYMPTOM_ERROR,
-ADD_SELECT
+ADD_SELECT,
+DELETE_SELECT,
+GET_SELECTEDSYMPTOMS
 }
 from '../types';
 
@@ -30,7 +32,7 @@ const SymptomState=props=>{
 
 	const getSymptoms=async ()=>{
 		try {
-			const res=await axios.get('/api/contacts');
+			const res=await axios.get('http://localhost:5000/api/symptoms');
 			//the only difference that this ill be where i declare a json object with all symptoms
 			dispatch({type:GET_SYMPTOMS,payload:res.data});
 		} catch (error) {
@@ -41,17 +43,51 @@ const SymptomState=props=>{
 		
 	}
 	
-	const addSelectedSymptom= symptom=>{
-		dispatch({type:ADD_SELECT,payload:symptom});
+	const getSelectedSymptoms=async ()=>{
+		try {
+			const res=await axios.get('http://localhost:5000/api/selectedsymp');
+			//the only difference that this ill be where i declare a json object with all symptoms
+			dispatch({type:GET_SELECTEDSYMPTOMS,payload:res.data});
+		} catch (error) {
+			dispatch({type:SYMPTOM_ERROR,
+			payload:error.response.msg
+			});
+		}
+		
 	}
-	const deleteSelectedSymptom=async selectedsymptom=>{
-		dispatch({type:DELETE_CONTACT,payload:selectedsymptom});
+	const addSelectedSymptom=async symptom=>{
+		const config={
+			headers:{
+			'Content-Type':'application/json'
+			}
+		}
+		try {
+			const res=await axios.post('http://localhost:5000/api/selectedsymp',symptom,config)
+			console.log("woohoo");
+			dispatch({type:ADD_SELECT,payload:res.data});
+		} catch (error) {
+			dispatch({type:SYMPTOM_ERROR,
+			payload:error.response.msg
+			});
+		}
+
 	}
+	const deleteSelectedSymptom=async id=>{
+		try {
+			await axios.delete(`http://localhost:5000/api/selectedsymp/${id}`)
+			dispatch({type:DELETE_SELECT,payload:id});
+		} catch (error) {
+			dispatch({type:SYMPTOM_ERROR,
+			payload:error.response.msg
+			});
+		}
+			
+		}	
 
 //clear contacts
-const clearContacts=contact=>{
-	dispatch({type:CLEAR_CONTACTS});
-}	
+// const clearContacts=contact=>{
+// 	dispatch({type:CLEAR_CONTACTS});
+// }	
 
 	//set current contact
 
@@ -74,15 +110,12 @@ const clearFilter=()=>{
 				selectedsymptoms:state.selectedsymptoms,
 				error:state.error,
 					filtered:state.filtered,
-					setCurrent,
-					clearCurrent,
 					filterSymptoms,
 					clearFilter,
 					getSymptoms,
-					clearSymptoms,
 					addSelectedSymptom,
-					deleteSelectedSymptom
-			
+					deleteSelectedSymptom,
+					getSelectedSymptoms
 			}}>
 		{props.children}
 		</SymptomContext.Provider>

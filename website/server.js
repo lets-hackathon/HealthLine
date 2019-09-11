@@ -37,6 +37,8 @@ app.use('/api/emotions',require('./routes/emotion.js'));
 
 //hardcoded route for adding symptoms
 app.use('/api/symptoms',require('./routes/symptoms.js'));
+app.use('/api/selectedsymp',require('./routes/selectedsymptoms.js'));
+
 // serve static routes in production
 if(process.env.NODE_ENV === 'production'){
 	//set static folder

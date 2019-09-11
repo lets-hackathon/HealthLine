@@ -1,8 +1,7 @@
 const mongoose=require('mongoose');
 const SymptomSchema=mongoose.Schema({
     name:{
-		type:String,
-		required:true
-    }
+    type:String
+      }
 });
-module.exports=mongoose.model('symptom',SymptomSchema);
+module.exports=mongoose.model('symptoms',SymptomSchema);

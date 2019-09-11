@@ -5,7 +5,7 @@ import SymptomItem from './SymptomItem';
 // import Spinner from '../layout/Spinner';
 const Symptoms=()=>{
 	const symptomContext=useContext(SymptomContext);
-	const {symptoms,filtered,getSymptoms,loading}=contactContext;
+	const {symptoms,filtered,getSymptoms,loading}=symptomContext;
 	
 	useEffect(()=>{
 		getSymptoms();
@@ -28,7 +28,7 @@ const Symptoms=()=>{
 			))
 			:<h1>Please tell us how you are feeling!</h1>
 			}
-</TransitionGroup>): <Spinner/> }
+</TransitionGroup>): <h1>Loading</h1> }
 			
 	</Fragment>
 	);

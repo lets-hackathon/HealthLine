@@ -1,11 +1,15 @@
 import React,{useContext} from 'react';
 import SymptomContext from '../../../context/symptom/symptomContext';
 const SymptomItem=({symptom})=>{
-	
 	const symptomContext=useContext(SymptomContext);
-	const{addSelectedSymptom}=symptomContext;
+	const{addSelectedSymptom,clearFilter}=symptomContext;
+	onClickHandler=()=>{
+		addSelectedSymptom(symptom);
+		clearFilter();
 
-	const {_id,name,email,phone,type}=symptom;
+	}
+
+	const {name}=symptom;
 	
 	return(
 	
@@ -16,7 +20,7 @@ const SymptomItem=({symptom})=>{
 	<p>
 			<button 
 				className="btn btn-dark btn-sm"
-				onClick={()=>addSelectedSymptom(symptom)} >Add Symptom</button>
+				onClick={onClickHandler} >Add Symptom</button>
 		    {/* <button className="btn btn-danger btn-sm" onClick={onDelete}>Delete</button> */}
 
 			</p>
