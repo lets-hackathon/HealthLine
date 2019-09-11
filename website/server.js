@@ -6,9 +6,20 @@ const scheduler = require('./scheduler');
 const fileupload=require("express-fileupload");
 const cors = require('cors');
 const app = express();
+const static = require('node-static');
 
 //connect database
 connectDB();
+
+//for static hosting of model.json
+var file = new static.Server('./ml/tfjs-model');
+require('http').createServer(function(req, res){
+  req.addListener('end', function() {
+  file.serve(req, res);
+}).resume();
+}).listen(3001);
+
+
 
 //Init middleware
 app.use(express.json({extended:false}));
