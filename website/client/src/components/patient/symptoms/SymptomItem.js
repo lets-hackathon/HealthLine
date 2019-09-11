@@ -3,7 +3,7 @@ import SymptomContext from '../../../context/symptom/symptomContext';
 const SymptomItem=({symptom})=>{
 	const symptomContext=useContext(SymptomContext);
 	const{addSelectedSymptom,clearFilter}=symptomContext;
-	onClickHandler=()=>{
+	const onClickHandler=()=>{
 		addSelectedSymptom(symptom);
 		clearFilter();
 

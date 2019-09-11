@@ -6,7 +6,7 @@ const SelectedSymptomItem=({selectedsymptom})=>{
 	const{deleteSelectedSymptom}=symptomContext;
 
 	const {name,_id}=selectedsymptom;
-	
+	console.log(name);
 	return(
 	
 	<div className='card bg-light'>
