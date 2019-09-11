@@ -40,12 +40,12 @@ const ChartPage = (props) => {
       const response = await axios.get("http://localhost:5000/api/emotions");
       console.log("Eureka!");
       setData({
-        love:(response.data.love)*100000,
-        joy:(response.data.joy)*100000,
-        sadness:(response.data.sadness)*100000,
-        fear:(response.data.fear)*100000,
-        anger:(response.data.anger)*100000,
-        surprise:(response.data.surprise)*100000
+        love:(response.love)*100000,
+        joy:(response.joy)*100000,
+        sadness:(response.sadness)*100000,
+        fear:(response.fear)*100000,
+        anger:(response.anger)*100000,
+        surprise:(response.surprise)*100000
       });
       console.log(typeof(response.data.surprise));
       console.log(response.data.surprise);

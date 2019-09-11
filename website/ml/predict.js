@@ -1,7 +1,8 @@
 //import axios from 'axios';
 
-const tf = require('@tensorflow/tfjs');
-//const tf = require('@tensorflow/tfjs-node') //breaks at node -v < 10.x.x
+// const tf = require('@tensorflow/tfjs');
+const tf = require('@tensorflow/tfjs-node') 
+//breaks at node -v < 10.x.x
 const label2id = require('./tfjs-model/label2id.json')
 const word2id = require('./tfjs-model/word2id.json')
 
@@ -24,7 +25,7 @@ var totlabel = {
 };
 var texts = [];
 
-async function predict() {
+async function predict(req,res) {
     const address = "http://127.0.0.1:3001/model.json"
     model = await tf.loadLayersModel(address); //npm http-server /path/to/tfjs-model -p 3000 find a way to host using express.static function
     console.log("model loaded successfully.");
@@ -60,8 +61,8 @@ async function predict() {
         totlabel[property] /= texts.length;
     }
     console.log(totlabel);
-     res.json(totlabel);
+     return res.json(totlabel);
 }
-
+// predict();
 module.exports=predict;
-//export default predict;
+// export default predict;

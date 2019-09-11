@@ -70,4 +70,5 @@ pred.sort(function(a,b){return dtc[b]-dtc[a]})
 
 console.log(old==pred)
 }
+
 a();
