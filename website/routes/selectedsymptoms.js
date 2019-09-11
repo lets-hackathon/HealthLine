@@ -8,6 +8,7 @@ const Selected=require('../models/Selected');
 router.get('/',async (req,res)=>{
 try{
 	const selects=await Selected.find();
+	console.log(selects);
 	res.json(selects);
 
 } catch(err){

@@ -2,6 +2,7 @@ import React,{useReducer} from 'react';
 import axios from 'axios';
 import SymptomContext from './symptomContext';
 import SymptomReducer from './symptomReducer';
+import * as fs from 'fs';
 
 import {
 	GET_SYMPTOMS,
@@ -23,7 +24,8 @@ const SymptomState=props=>{
 		current:null,
 		selectedsymptoms:null,
 		filtered:null,
-		error:null
+		error:null,
+		result:null
 		
 	};
 	const [state,dispatch]=useReducer(SymptomReducer,initialState);
@@ -65,6 +67,13 @@ const SymptomState=props=>{
 			const res=await axios.post('http://localhost:5000/api/selectedsymp',symptom,config)
 			console.log("woohoo");
 			dispatch({type:ADD_SELECT,payload:res.data});
+			// const result=await axios.get('http://localhost:5000/api/selectedsymp');
+			// fs.writeFile("./test.json",JSON.stringify(result),function(err){
+			// 	if(err){
+			// 		console.log(err);
+			// 	}
+			// 	console.log("saved");
+			// })
 		} catch (error) {
 			dispatch({type:SYMPTOM_ERROR,
 			payload:error.response.msg
@@ -110,6 +119,7 @@ const clearFilter=()=>{
 				selectedsymptoms:state.selectedsymptoms,
 				error:state.error,
 					filtered:state.filtered,
+					result:state.result,
 					filterSymptoms,
 					clearFilter,
 					getSymptoms,

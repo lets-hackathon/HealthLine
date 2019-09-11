@@ -1,6 +1,11 @@
-var std = require("./data.json") //symptoms to diseases
-var dtc = require("./tosort.json") //diseases to count
+var std = require("./data.json.js") //symptoms to diseases
+const Selected=require("../models/Symptom");
+var dtc = require("./tosort.json.js") //diseases to count
 
+
+const a=async ()=>{
+	// const result=await 
+const result=await Selected.find(); //this is the json object now in your function to be used as input
 var x= new Object()
 
 //creating an object containing diseases as keys and values as 0
@@ -49,4 +54,5 @@ var old=Array.from(pred)
 pred.sort(function(a,b){return dtc[b]-dtc[a]})
 
 console.log(old==pred)
-
+}
+a();
