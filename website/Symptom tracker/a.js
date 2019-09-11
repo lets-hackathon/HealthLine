@@ -1,6 +1,6 @@
-var std = require("./data.json.js") //symptoms to diseases
+var std = require("./data.json") //symptoms to diseases
 const Selected=require("../models/Symptom");
-var dtc = require("./tosort.json.js") //diseases to count
+var dtc = require("./tosort.json") //diseases to count
 
 
 const a=async ()=>{
