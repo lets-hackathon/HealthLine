@@ -1,11 +1,11 @@
 var std = require("./data.json") //symptoms to diseases
-const Selected=require("../models/Symptom");
+const Selected=require("../models/Symptom")
 var dtc = require("./tosort.json") //diseases to count
 
 
-const a=async ()=>{
+const a=async (req,res)=>{
 	// const result=await 
-const result=await Selected.find(); //this is the json object now in your function to be used as input
+const results=await Selected.find(); //this is the json object now in your function to be used as input
 var x= new Object()
 
 //creating an object containing diseases as keys and values as 0
@@ -29,6 +29,9 @@ for (var i in stdkey){
 // 	x[stdin[i]]+=1
 // }
 var stdin=[]
+results.map(result=>
+	{stdin.push(result.name)})
+
 for (var i in stdkey){
 	stdin.push(stdkey[i])
 }
@@ -68,6 +71,16 @@ var old=Array.from(pred)
 //to sort predictions by count
 pred.sort(function(a,b){return dtc[b]-dtc[a]})
 
-console.log(old==pred)
+// console.log(old==pred)
+var majak=[]
+for (var i = 0; i<5; i++) {
+	majak.push(pred[i])
 }
-a();
+send={"predictions":majak}
+res.json(send)
+// with open("predictions.json",'w') as f:
+//     json.dump(majak,f)
+
+}
+// a();
+export default a;
