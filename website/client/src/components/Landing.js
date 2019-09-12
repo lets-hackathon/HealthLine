@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Link, Redirect } from "react-router-dom";
 const Landing = () => {
   return (
     <div>
@@ -9,14 +9,26 @@ const Landing = () => {
           style={{ width: "100%", opacity: "0.75" }}
           alt=""
         />
-        <div className="carousel-caption" style={{paddingBottom:"700px"}}>
+        <div className="carousel-caption" style={{ paddingBottom: "700px" }}>
           <h1 className="display-1">HealthLine</h1>
           <h3>Your Smart Health Assistant</h3>
-          <button type="button" className="btn btn-outline-light btn-lg">
-            Login
+          <button
+            type="button"
+            style={{ margin: "1%" }}
+            className="btn btn-outline-light btn-lg"
+          >
+            <Link to="/login" className="text-white">
+              Login
+            </Link>
           </button>
-          <button type="button" className="btn btn-primary btn-lg">
-            Register
+          <button
+            type="button"
+            className="btn btn-primary btn-lg"
+            style={{ margin: "1%" }}
+          >
+            <Link to="/register" className="text-white">
+              Register
+            </Link>
           </button>
         </div>
       </div>
