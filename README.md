@@ -3,6 +3,7 @@ This is an application that connects  doctors, hospitals and their patients for 
 parties involved.  
 It is a step towards digitization of all the medical information of a patient securely, preserve authenticity of medical records 
 and a familiar online portal made to ensure ease of accessibility for a patient.
+use the link to visit the hosted website: https://healthline-nsuthh.herokuapp.com
 
 ## Features
 The App includes several features regarding healthcare like-
