@@ -2,11 +2,11 @@ import React,{useContext} from 'react';
 import SymptomContext from '../../../context/symptom/symptomContext';
 const SymptomItem=({symptom})=>{
 	const symptomContext=useContext(SymptomContext);
-	const{addSelectedSymptom,clearFilter}=symptomContext;
+	const{addSelectedSymptom,clearFilter,getResults}=symptomContext;
 	const onClickHandler=()=>{
 		addSelectedSymptom(symptom);
 		clearFilter();
-
+		getResults();
 	}
 
 	const {name}=symptom;
