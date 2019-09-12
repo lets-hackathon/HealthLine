@@ -1,6 +1,9 @@
+// const connectDB = require('../config/db');
 var std = require("./data.json") //symptoms to diseases
-const Selected=require("../models/Symptom")
 var dtc = require("./tosort.json") //diseases to count
+// connectDB();
+
+const Selected=require("../models/Selected")
 
 
 const a=async ()=>{
@@ -32,14 +35,17 @@ var stdin=[]
 results.map(result=>
 	{stdin.push(result.name)})
 
-for (var i in stdkey){
-	stdin.push(stdkey[i])
-}
+// for (var i in stdkey){
+// 	stdin.push(stdkey[i])
+// }
 console.log(stdin)
 //incrementing the values of occurences
 for (var i in stdin){
+	for(var j in std[stdin[i]]){
+		x[std[stdin[i]][j]]+=1
+	}
 	// console.log(stdin[i])
-	x[stdin[i]]+=1
+	// x[stdin[i]]+=1
 }
 
 //to know the no. of symptom matches of each disease
@@ -73,14 +79,22 @@ pred.sort(function(a,b){return dtc[b]-dtc[a]})
 
 // console.log(old==pred)
 var majak=[]
-for (var i = 0; i<5; i++) {
-	majak.push(pred[i])
-}
+if(pred.length>5){
+	for (var i = 0; i<5; i++) {
+		majak.push(pred[i])
+	}
+	}
+	else{
+		for(var i in pred){
+			majak.push(pred[i])
+		}
+	}
 send={"predictions":majak}
+console.log(pred);
+
 return send;
 // with open("predictions.json",'w') as f:
 //     json.dump(majak,f)
-
 }
 // a();
 module.exports=a;
