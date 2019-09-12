@@ -3,7 +3,7 @@ import SymptomContext from '../../../context/symptom/symptomContext';
 const SelectedSymptomItem=({selectedsymptom})=>{
 	
 	const symptomContext=useContext(SymptomContext);
-	const{deleteSelectedSymptom}=symptomContext;
+	const{deleteSelectedSymptom,getResults}=symptomContext;
 
 	const {name,_id}=selectedsymptom;
 	// console.log(name);
@@ -16,7 +16,8 @@ const SelectedSymptomItem=({selectedsymptom})=>{
 	<p>
 			<button 
 				className="btn btn-dark btn-sm"
-				onClick={()=>deleteSelectedSymptom(_id)} >Delete Symptom</button>
+				onClick={()=>{deleteSelectedSymptom(_id);
+				getResults()}} >Delete Symptom</button>
 		    {/* <button className="btn btn-danger btn-sm" onClick={onDelete}>Delete</button> */}
 
 			</p>

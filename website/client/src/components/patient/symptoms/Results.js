@@ -1,14 +1,15 @@
 import React,{Fragment,useContext,useEffect} from 'react';
 import {CSSTransition,TransitionGroup} from 'react-transition-group';
 import SymptomContext from '../../../context/symptom/symptomContext'; 
-import SymptomItem from './SymptomItem';
+import ResultItem from './ResultItem';
 // import Spinner from '../layout/Spinner';
-const Symptoms=()=>{
+const Results=()=>{
 	const symptomContext=useContext(SymptomContext);
-	const {filtered,getSymptoms,loading}=symptomContext;
+	const {results,getResults,loading}=symptomContext;
 	
 	useEffect(()=>{
-		getSymptoms();
+        getResults();
+        console.log(results);
 		//eslint-disable-next-line
 	},[])
 	
@@ -20,17 +21,15 @@ const Symptoms=()=>{
 	<Fragment>
 		{!loading ? (<TransitionGroup>
 			{
-			filtered!==null?
-			filtered.map( symptom =>(
-				<CSSTransition key={symptom._id} timeout={500} classNames="item" >
-			<SymptomItem  symptom={symptom}/>
+			results.map( result =>(
+				<CSSTransition timeout={500} classNames="item" >
+			<ResultItem  result={result}/>
 					</CSSTransition>
 			))
-			:<h1>Please tell us how you are feeling!</h1>
 			}
 </TransitionGroup>): <h1>Loading</h1> }
 			
 	</Fragment>
 	);
 }
-export default Symptoms;
+export default Results;

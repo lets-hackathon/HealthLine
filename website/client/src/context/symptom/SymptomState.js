@@ -22,7 +22,7 @@ const SymptomState=props=>{
 		selectedsymptoms:null,
 		filtered:null,
 		error:null,
-		result:[]
+		results:[]
 		
 	};
 	const [state,dispatch]=useReducer(SymptomReducer,initialState);
@@ -57,7 +57,8 @@ const SymptomState=props=>{
 	const getResults=async()=>{
 		try {
 			const res=await axios.get('http://localhost:5000/api/results');
-			dispatch({type:GET_RESULTS,payload:res.data});
+			console.log(res.data.predictions);
+			dispatch({type:GET_RESULTS,payload:res.data.predictions});
 		} catch (error) {
 			dispatch({type:SYMPTOM_ERROR,
 			payload:error.response.msg
@@ -121,7 +122,7 @@ const clearFilter=()=>{
 				selectedsymptoms:state.selectedsymptoms,
 				error:state.error,
 					filtered:state.filtered,
-					result:state.result,
+					results:state.results,
 					filterSymptoms,
 					clearFilter,
 					getSymptoms,
