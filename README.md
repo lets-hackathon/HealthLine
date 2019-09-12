@@ -23,5 +23,5 @@ The App includes several features regarding healthcare like-
  4. then come back to directory website and type `npm run dev` to host the website locally.
  5. Dummy username: kanishkgupta2000@gmail.com password: password to login
  
- > Disclaimer: this project is in the process of building and should not be used as of now
+ > Disclaimer: See the master branch only for the Philips Hackathon Submission, all changes are commited before 12th of September 2019
  
