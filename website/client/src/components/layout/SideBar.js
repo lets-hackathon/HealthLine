@@ -5,6 +5,7 @@ const SideBar = () => {
   return (
     <Fragment>
       <div
+        id = "side"
         className="sidebar sidebar-dark sidebar-main sidebar-expand-md"
         style={{ height: "100%" }}
       >

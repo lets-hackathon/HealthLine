@@ -9,18 +9,19 @@ const SelectedSymptomItem=({selectedsymptom})=>{
 	// console.log(name);
 	return(
 	
-	<div className='card bg-light'>
-	<h3 className="text-primary text-left">
+	<div className='card bg-light' className= 'ui card' id = "sym_card">
+	<h3 className="text-primary ">
 		{name}{''}
 	</h3>	
 	<p>
 			<button 
+				id="symptom_button"
 				className="btn btn-dark btn-sm"
 				onClick={()=>{deleteSelectedSymptom(_id);
-				getResults()}} >Delete Symptom</button>
+				getResults()}}>Delete Symptom</button>
 		    {/* <button className="btn btn-danger btn-sm" onClick={onDelete}>Delete</button> */}
 
-			</p>
+	</p>
 	</div>
 	);
 

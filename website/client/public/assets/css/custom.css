@@ -1,0 +1,20 @@
+#foot {
+    position: fixed;
+    bottom : 0;
+    width: 100%;
+}
+
+#side {
+    height: 100%;
+}
+
+#sym_card {
+    text-align: center;
+    margin-top: 20px;
+    align-content: center;
+}
+
+#choose_sym {
+    text-align: center;
+        
+}

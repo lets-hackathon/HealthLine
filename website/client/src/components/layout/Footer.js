@@ -3,7 +3,7 @@ import React, { Fragment } from "react";
 const Footer = () => {
   return (
     <Fragment>
-      <footer
+      <footer id="foot"
         className="page-footer font-small blue pt-5"
 
         // style={{ marginBottom: "0px" }}
@@ -28,7 +28,7 @@ const Footer = () => {
               © 2019 <a href="#">Healthline</a> by{" "}
               <a
                 className="col-lg-4 ml-auto"
-                href="http://themeforest.net/user/Kopyov"
+                href="https://www.github.com/lets-hackathon"
                 target="_blank"
               >
                 NSUT HH
