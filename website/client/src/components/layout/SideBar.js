@@ -4,7 +4,10 @@ import { Link } from "react-router-dom";
 const SideBar = () => {
   return (
     <Fragment>
-      <div className="sidebar sidebar-dark sidebar-main sidebar-expand-md">
+      <div
+        className="sidebar sidebar-dark sidebar-main sidebar-expand-md"
+        style={{ height: "100%" }}
+      >
         {/* Sidebar mobile toggler */}
         <div className="sidebar-mobile-toggler text-center">
           <a href="#" className="sidebar-mobile-main-toggle">
@@ -36,10 +39,10 @@ const SideBar = () => {
                 </div>
                 <div className="media-body">
                   <div className="media-title font-weight-semibold">
-                    Victoria Baker
+                    Kanishk Gupta
                   </div>
                   <div className="font-size-xs opacity-50">
-                    <i className="icon-pin font-size-sm" /> &nbsp;Santa Ana, CA
+                    <i className="icon-pin font-size-sm" /> Rajouri, Delhi
                   </div>
                 </div>
                 <div className="ml-3 align-self-center">
@@ -67,52 +70,64 @@ const SideBar = () => {
                   <span>My Profile</span>
                 </Link>
               </li>
-              
+
               <li className="nav-item nav-item-submenu">
-                    {/* <a href="#" className="nav-link"><i className="icon-copy" /> <span>My Reminders</span></a> */}
-                    {/* <ul className="nav nav-group-sub" data-submenu-title="Layouts"> */}
-                      <li className="nav-item"><Link to="/reminderform" className="nav-link">Set Reminders</Link></li>
-                      <li className="nav-item"><Link to="/reminder" className="nav-link">Show My Reminders</Link></li>
-                    {/* </ul> */}
-                  </li>
+                {/* <a href="#" className="nav-link"><i className="icon-copy" /> <span>My Reminders</span></a> */}
+                {/* <ul className="nav nav-group-sub" data-submenu-title="Layouts"> */}
+                <li className="nav-item">
+                  <Link to="/reminderform" className="nav-link">
+                    Set Reminders
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link to="/reminder" className="nav-link">
+                    Show My Reminders
+                  </Link>
+                </li>
+                {/* </ul> */}
+              </li>
               <li className="nav-item nav-item-submenu">
-                    {/* <a href="#" className="nav-link"><i className="icon-color-sampler" /> <span>My Records</span></a> */}
-                    {/* <ul className="nav nav-group-sub" data-submenu-title="Themes"> */}
-                      <li className="nav-item"><Link to="/recordform" className="nav-link ">Create Personal Record</Link></li>
-                      <li className="nav-item"><a href="#" className="nav-link">Show my Personal record</a></li>
-                      <li className="nav-item"><a href="#" className="nav-link">Doctor Reports</a></li>
-                    {/* </ul> */}
-                  </li>
-              
-            
+                {/* <a href="#" className="nav-link"><i className="icon-color-sampler" /> <span>My Records</span></a> */}
+                {/* <ul className="nav nav-group-sub" data-submenu-title="Themes"> */}
+                <li className="nav-item">
+                  <Link to="/recordform" className="nav-link ">
+                    Create Personal Record
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <a href="#" className="nav-link">
+                    Show my Personal record
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a href="#" className="nav-link">
+                    Doctor Reports
+                  </a>
+                </li>
+                {/* </ul> */}
+              </li>
+
               <li className="nav-item">
-                <a
-                  href="#"
-                  className="nav-link"
-                >
+                <a href="#" className="nav-link">
                   <i className="icon-width" /> <span>Symptom Tracker</span>
                 </a>
               </li>
               <li className="nav-item">
-                <Link to="/socialpresence"
-                  className="nav-link"
-                >
+                <Link to="/socialpresence" className="nav-link">
                   <i className="icon-width" />{" "}
                   <span>Social Media Analysis</span>
                 </Link>
               </li>
               {/* /main */}
               {/* Forms */}
-                           {/* /forms */}
+              {/* /forms */}
               {/* Components */}
-                           {/* /components */}
+              {/* /components */}
               {/* Layout */}
-              
-                  
+
               {/* /layout */}
               {/* Data visualization */}
-             
-              
+
               {/* /page kits */}
             </ul>
           </div>
