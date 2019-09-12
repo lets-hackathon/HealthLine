@@ -6,7 +6,6 @@ const SideBar = () => {
     <Fragment>
       <div
         className="sidebar sidebar-dark sidebar-main sidebar-expand-md"
-        style={{ height: "100%" }}
       >
         {/* Sidebar mobile toggler */}
         <div className="sidebar-mobile-toggler text-center">

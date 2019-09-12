@@ -31,7 +31,7 @@ const SymptomState=props=>{
 
 	const getSymptoms=async ()=>{
 		try {
-			const res=await axios.get('http://localhost:5000/api/symptoms');
+			const res=await axios.get('/api/symptoms');
 			//the only difference that this ill be where i declare a json object with all symptoms
 			dispatch({type:GET_SYMPTOMS,payload:res.data});
 		} catch (error) {
@@ -44,7 +44,7 @@ const SymptomState=props=>{
 	
 	const getSelectedSymptoms=async ()=>{
 		try {
-			const res=await axios.get('http://localhost:5000/api/selectedsymp');
+			const res=await axios.get('/api/selectedsymp');
 			//the only difference that this ill be where i declare a json object with all symptoms
 			dispatch({type:GET_SELECTEDSYMPTOMS,payload:res.data});
 		} catch (error) {
@@ -56,7 +56,7 @@ const SymptomState=props=>{
 	}
 	const getResults=async()=>{
 		try {
-			const res=await axios.get('http://localhost:5000/api/results');
+			const res=await axios.get('/api/results');
 			console.log(res.data.predictions);
 			dispatch({type:GET_RESULTS,payload:res.data.predictions});
 		} catch (error) {
@@ -74,7 +74,7 @@ const SymptomState=props=>{
 			}
 		}
 		try {
-			const res=await axios.post('http://localhost:5000/api/selectedsymp',symptom,config)
+			const res=await axios.post('/api/selectedsymp',symptom,config)
 			console.log("woohoo");
 			dispatch({type:ADD_SELECT,payload:res.data});
 		} catch (error) {
@@ -86,7 +86,7 @@ const SymptomState=props=>{
 	}
 	const deleteSelectedSymptom=async id=>{
 		try {
-			await axios.delete(`http://localhost:5000/api/selectedsymp/${id}`)
+			await axios.delete(`/api/selectedsymp/${id}`)
 			dispatch({type:DELETE_SELECT,payload:id});
 		} catch (error) {
 			dispatch({type:SYMPTOM_ERROR,

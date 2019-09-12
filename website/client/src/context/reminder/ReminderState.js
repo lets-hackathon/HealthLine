@@ -24,7 +24,7 @@ const ReminderState=props=>{
 		
 
 		try {
-			const res=await axios.get('http://localhost:5000/api/patient/reminder');
+			const res=await axios.get('/api/patient/reminder');
 			dispatch({type:GET_REMINDERS,payload:res.data});
 		} catch (error) {
 			dispatch({type:REMINDER_ERROR,
@@ -43,7 +43,7 @@ const ReminderState=props=>{
 		}
 
 		// try {
-			const res=await axios.post('http://localhost:5000/api/patient/reminder',reminder,config)
+			const res=await axios.post('/api/patient/reminder',reminder,config)
 			dispatch({type:ADD_REMINDER,payload:res.data});
 		// } 
 		
@@ -58,7 +58,7 @@ const ReminderState=props=>{
 	
 const deleteReminder=async id=>{
 	try {
-		await axios.delete(`http://localhost:5000/api/patient/reminder/${id}`)
+		await axios.delete(`/api/patient/reminder/${id}`)
 		dispatch({type:DELETE_REMINDER,payload:id});
 	} catch (error) {
 		dispatch({type:REMINDER_ERROR,

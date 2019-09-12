@@ -5,7 +5,9 @@ html {
     -ms-flex-direction: column;
     flex-direction: column
 }
-
+.page-footer.font-small.blue.pt-5.footerhack {
+    padding: 0;
+}
 body {
     min-height: 100vh;
     display: -ms-flexbox;

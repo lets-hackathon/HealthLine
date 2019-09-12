@@ -4,9 +4,10 @@ const Footer = () => {
   return (
     <Fragment>
       <footer
-        className="page-footer font-small blue pt-5"
-
+        // className="page-footer font-small blue pt-5 footerhack"
+        // style={{marginTop:"0px",paddingTop:"0px"}}
         // style={{ marginBottom: "0px" }}
+        
       >
         <div
           className="navbar navbar-expand-lg navbar-dark"
