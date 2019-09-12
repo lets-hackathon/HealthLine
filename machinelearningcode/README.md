@@ -7,3 +7,14 @@ the subdirectories/files are explained as follows
 - **model**: contains the outcome model in Hierarchical Data Format (version 5)
 - **data**: the text data used for training/testing the model
 - **train.py**: code in python to create the model
+
+## To run
+Type in terminal the following commands -
+
+1. `npm install http-server`
+2. from directory Healthline, `npx http-server ./website/ml/tfjs-model/ -p 3000`
+3. from directory machinelearningcode `node predict.js`
+
+> if error @tensorflow/tfjs not found, `npm install @tensorflow/tfjs`
+
+> make sure to have node -v 10.x.x or higher and npm/npx installed before
