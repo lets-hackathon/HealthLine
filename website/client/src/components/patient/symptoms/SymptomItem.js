@@ -18,8 +18,9 @@ const SymptomItem=({symptom})=>{
 		{name}{''}
 	</h3>	
 	<p>
+
 			<button 
-				className="btn btn-dark btn-sm"
+				className="ui inverted green button"
 				onClick={onClickHandler} >Add Symptom</button>
 		    {/* <button className="btn btn-danger btn-sm" onClick={onDelete}>Delete</button> */}
 

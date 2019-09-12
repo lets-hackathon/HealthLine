@@ -108,9 +108,9 @@ const SideBar = () => {
               </li>
 
               <li className="nav-item">
-                <a href="#" className="nav-link">
+                <Link to="/symptomrender" className="nav-link">
                   <i className="icon-width" /> <span>Symptom Tracker</span>
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
                 <Link to="/socialpresence" className="nav-link">

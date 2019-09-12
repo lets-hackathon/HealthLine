@@ -3,19 +3,9 @@ import React, { Fragment } from "react";
 const Footer = () => {
   return (
     <Fragment>
-<<<<<<< HEAD
-      <footer
-        // className="page-footer font-small blue pt-5 footerhack"
-        // style={{marginTop:"0px",paddingTop:"0px"}}
-=======
-      <footer id="foot"
-        className="page-footer font-small blue pt-5"
-
->>>>>>> f35a6d495e619037cc12576b08b49773ef9f936d
-        // style={{ marginBottom: "0px" }}
-        
-      >
         <div
+              id="foot" 
+
           className="navbar navbar-expand-lg navbar-dark"
           // style={{ marginBottom: "0px" }}
         >
@@ -43,7 +33,6 @@ const Footer = () => {
             </span>
           </div>
         </div>
-      </footer>
     </Fragment>
   );
 };
