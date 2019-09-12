@@ -17,16 +17,16 @@ const ChartPage = (props) => {
   const {surprise,anger,love,joy,sadness,fear}=data;
   const authContext=useContext(AuthContext);
   const radarData = {
-    labels: ['surprise', 'anger', 'love', 'joy', 'sadness', 'fear'],
+    labels: ['surprise', 'love', 'joy','anger','fear', 'sadness'],
     datasets: [
       {
         label: 'Twitter',
-        backgroundColor: 'rgba(255, 255, 153, 0.2)',
-        borderColor:  'rgba(255, 255, 153, 1)',
-        pointBorderColor: 'rgba(255, 255, 153, 1)',
-        pointBackgrounColor: 'rgba(255, 255, 153, 1)',
+        backgroundColor: 'rgba(32, 133, 227, 0.2)',
+        borderColor:  'rgba(32, 133, 227, 1)',
+        pointBorderColor: 'rgba(32, 133, 227, 1)',
+        pointBackgrounColor: 'rgba(32, 133, 227, 1)',
         pointRadius: 1,
-        data: [surprise,anger,love,joy,sadness,fear]
+        data: [surprise,love,joy,anger,fear,sadness]
        }
     
     ]
@@ -40,12 +40,12 @@ const ChartPage = (props) => {
       const response = await axios.get("http://localhost:5000/api/emotions");
       console.log("Eureka!");
       setData({
-        love:(response.love)*100000,
-        joy:(response.joy)*100000,
-        sadness:(response.sadness)*100000,
-        fear:(response.fear)*100000,
-        anger:(response.anger)*100000,
-        surprise:(response.surprise)*100000
+        love:(response.data.love)*100000,
+        joy:(response.data.joy)*100000,
+        sadness:(response.data.sadness)*100000,
+        fear:(response.data.fear)*100000,
+        anger:(response.data.anger)*100000,
+        surprise:(response.data.surprise)*100000
       });
       console.log(typeof(response.data.surprise));
       console.log(response.data.surprise);
@@ -60,7 +60,12 @@ const ChartPage = (props) => {
 
         <Sidebar/>
         <div className="content-wrapper">
-
+          <h1>Due to limitations of hardware, the model takes 40 seconds to load, kindly wait</h1>
+          {/* <div className="carousel-caption" style={{paddingBottom:"70px"}}>
+          <h1 className="display-1">Emotional analysis of patient using twitter feed</h1>
+          <h3>The model takes 40 seconds to render a result, kindly wait</h3>
+          
+        </div> */}
         <Radar data={radarData} />
         </div>
     </div>

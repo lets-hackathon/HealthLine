@@ -1,4 +1,4 @@
-import React,{useContext,useEffect} from 'react';
+import React,{useContext,useEffect,Fragment} from 'react';
 import Symptoms from './Symptoms';
 import SymptomFilter from './SymptomFilter';
 import SelectedSymptoms from './SelectedSymptoms'
@@ -12,18 +12,25 @@ useEffect(()=>{
 	authContext.loadUser();
 	//eslint-disable-next-line
 },[]);
-	return (
-	<div className="grid-2">
+	return (<Fragment>
+		<div className="container">
+		<div className="row">
+	<div className="col-lg-6">
 	<div>
 	<SymptomFilter/>
     <Symptoms/>
-	</div>		
+	</div>				
+	</div>
+	<div className="cole-lg-6">
 	<div>
 	<SelectedSymptoms/>
-    {/* <button onCLick={onClick}>Get analysis!</button> */}
 	</div>
-			
 	</div>
+	
+	</div>
+	</div>
+	
+	</Fragment>
 	);
 };
 

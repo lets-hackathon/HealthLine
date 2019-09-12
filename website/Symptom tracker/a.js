@@ -3,7 +3,7 @@ const Selected=require("../models/Symptom")
 var dtc = require("./tosort.json") //diseases to count
 
 
-const a=async (req,res)=>{
+const a=async ()=>{
 	// const result=await 
 const results=await Selected.find(); //this is the json object now in your function to be used as input
 var x= new Object()
@@ -77,10 +77,10 @@ for (var i = 0; i<5; i++) {
 	majak.push(pred[i])
 }
 send={"predictions":majak}
-res.json(send)
+return send;
 // with open("predictions.json",'w') as f:
 //     json.dump(majak,f)
 
 }
 // a();
-export default a;
+module.exports=a;

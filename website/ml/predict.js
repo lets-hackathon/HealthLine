@@ -61,7 +61,7 @@ async function predict(req,res) {
         totlabel[property] /= texts.length;
     }
     console.log(totlabel);
-     return res.json(totlabel);
+     return totlabel;
 }
 // predict();
 module.exports=predict;
