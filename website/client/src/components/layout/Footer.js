@@ -5,6 +5,7 @@ const Footer = () => {
     <Fragment>
       <footer
         className="page-footer font-small blue pt-5"
+
         // style={{ marginBottom: "0px" }}
       >
         <div
