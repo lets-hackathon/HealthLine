@@ -13,8 +13,8 @@ const SymptomItem=({symptom})=>{
 	
 	return(
 	
-	<div className='card bg-light'>
-	<h3 className="text-primary text-left">
+	< div className = "ui card" id="choose_sym">
+	<h3 className="text-primary">
 		{name}{''}
 	</h3>	
 	<p>
