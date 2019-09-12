@@ -15,5 +15,13 @@ The App includes several features regarding healthcare like-
  - A **general analysis** section that would ask you about your symptoms in order to suggest you actions and doctors.
  - General warnings, tips and myths regarding your health.
  
+ ## Run Locally
+ to host the website locally, you need to have install nodejs and npm.  
+ 1. download and install it from here: https://nodejs.org/en/download/
+ 2. cd into website and type in terminal `npm install` to install dependencies.
+ 3. cd into client and type in terminal `npm install` to install react dependencies.
+ 4. then come back to directory website and type `npm run dev` to host the website locally.
+ 5. Dummy username: kanishkgupta2000@gmail.com password: password to login
+ 
  > Disclaimer: this project is in the process of building and should not be used as of now
  
