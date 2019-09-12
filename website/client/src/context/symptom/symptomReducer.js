@@ -8,7 +8,8 @@ import {
   CLEAR_CONTACTS,
   ADD_SELECT,
   DELETE_SELECT,
-  GET_SELECTEDSYMPTOMS
+  GET_SELECTEDSYMPTOMS,
+  GET_RESULTS
 } from '../types';
 
 export default (state, action) => {
@@ -17,6 +18,12 @@ export default (state, action) => {
       return {
         ...state,
         symptoms: action.payload,
+        loading: false
+      };
+      case GET_RESULTS:
+      return {
+        ...state,
+        results: action.payload,
         loading: false
       };
       case GET_SELECTEDSYMPTOMS:

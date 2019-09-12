@@ -2,19 +2,16 @@ import React,{useReducer} from 'react';
 import axios from 'axios';
 import SymptomContext from './symptomContext';
 import SymptomReducer from './symptomReducer';
-import * as fs from 'fs';
 
 import {
 	GET_SYMPTOMS,
-SET_CURRENT,
-CLEAR_CURRENT,
 FILTER_SYMPTOMS,
-CLEAR_CONTACTS,
 CLEAR_FILTER,
 SYMPTOM_ERROR,
 ADD_SELECT,
 DELETE_SELECT,
-GET_SELECTEDSYMPTOMS
+GET_SELECTEDSYMPTOMS,
+GET_RESULTS
 }
 from '../types';
 
@@ -25,7 +22,7 @@ const SymptomState=props=>{
 		selectedsymptoms:null,
 		filtered:null,
 		error:null,
-		result:null
+		result:[]
 		
 	};
 	const [state,dispatch]=useReducer(SymptomReducer,initialState);
@@ -57,6 +54,18 @@ const SymptomState=props=>{
 		}
 		
 	}
+	const getResults=async()=>{
+		try {
+			const res=await axios.get('http://localhost:5000/api/results');
+			dispatch({type:GET_RESULTS,payload:res.data});
+		} catch (error) {
+			dispatch({type:SYMPTOM_ERROR,
+			payload:error.response.msg
+			});
+		}
+
+	}
+	
 	const addSelectedSymptom=async symptom=>{
 		const config={
 			headers:{
@@ -67,13 +76,6 @@ const SymptomState=props=>{
 			const res=await axios.post('http://localhost:5000/api/selectedsymp',symptom,config)
 			console.log("woohoo");
 			dispatch({type:ADD_SELECT,payload:res.data});
-			// const result=await axios.get('http://localhost:5000/api/selectedsymp');
-			// fs.writeFile("./test.json",JSON.stringify(result),function(err){
-			// 	if(err){
-			// 		console.log(err);
-			// 	}
-			// 	console.log("saved");
-			// })
 		} catch (error) {
 			dispatch({type:SYMPTOM_ERROR,
 			payload:error.response.msg
@@ -125,7 +127,8 @@ const clearFilter=()=>{
 					getSymptoms,
 					addSelectedSymptom,
 					deleteSelectedSymptom,
-					getSelectedSymptoms
+					getSelectedSymptoms,
+					getResults
 			}}>
 		{props.children}
 		</SymptomContext.Provider>
