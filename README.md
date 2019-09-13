@@ -3,7 +3,10 @@ This is an application that connects  doctors, hospitals and their patients for 
 parties involved.  
 It is a step towards digitization of all the medical information of a patient securely, preserve authenticity of medical records 
 and a familiar online portal made to ensure ease of accessibility for a patient.
-use the link to visit the hosted website: https://healthline-nsuthh.herokuapp.com
+use the link to visit the hosted website: https://healthline-nsuthh.herokuapp.com  
+Dummy username: kanishkgupta2000@gmail.com  
+password: password  
+role: patient
 
 ## Features
 The App includes several features regarding healthcare like-
@@ -24,5 +27,5 @@ The App includes several features regarding healthcare like-
  4. then come back to directory website and type `npm run dev` to host the website locally.
  5. Dummy username: kanishkgupta2000@gmail.com password: password to login
  
- > Disclaimer: See the master branch only for the Philips Hackathon Submission, all changes are commited before 12th of September 2019
+ > Disclaimer: See the master branch only for the Philips Hackathon Submission, all changes are commited before 13th of September 2019
  
